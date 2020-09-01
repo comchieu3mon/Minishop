@@ -1,0 +1,48 @@
+package com.minhduc.controller;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.minhduc.entity.Staff;
+import com.minhduc.service.StaffService;
+
+@Controller
+@RequestMapping("register/")
+public class RegisterController {
+	
+	@Autowired
+	private StaffService staffService;
+	
+	private static final String regex = "^(.+)@(.+)$";
+	
+	public boolean checkEmail(String email) {
+		Pattern pattern = Pattern.compile(regex);
+		Matcher matcher = pattern.matcher(email);
+		return matcher.matches();
+	}
+	
+	@GetMapping
+	public String getRegisterPage() {
+		return "Register";
+	}
+	
+	@PostMapping
+	public String handleRegister(@RequestParam String email, @RequestParam String fullname, @RequestParam String address, @RequestParam String phonenumber, @RequestParam String username, @RequestParam String password) {
+//		Staff staff = new Staff();
+//		staff.setUsername(username);
+//		staff.setPassword(password);
+//		staff.setStaff_address(address);
+//		staff.setStaff_phone(phonenumber);
+//		staff.setStaff_email(email);
+//		staff.setStaff_name(fullname);
+//		staffService.addStaff(staff);
+		return "Register";
+	}
+}

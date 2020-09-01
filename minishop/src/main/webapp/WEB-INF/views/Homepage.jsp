@@ -3,34 +3,35 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Homepage</title>
-<jsp:include page="Header.jsp"/>
+  <meta charset="UTF-8">
+  <title>Homepage</title>
+  <jsp:include page="Header.jsp" />
 </head>
+
 <body>
   <header>
     <div class="header-top">
       <div class="container flex-box">
         <a class="logo-brand" href="#">
-          <img src='<c:url value="/resources/Images/site-logo2.png"/>' width="150px" height="55px"/>
+          <img src='<c:url value="/resources/Images/site-logo2.png"/>' width="150px" height="55px" />
         </a>
         <form class="form-inline">
           <i class="fas fa-search" aria-hidden="true"></i>
-          <input class="form-control form-control-sm w-100" type="text" placeholder="Search"
-            aria-label="Search">
+          <input class="form-control form-control-sm w-100" type="text" placeholder="Search" aria-label="Search">
         </form>
-        <div class="login-register-container"> 
+        <div class="login-register-container">
           <c:choose>
-          	<c:when test="${ username != null}">
-          		<p>${ username }</p>
-          	</c:when>
-          	<c:otherwise>
-          		<a href="login/">Login</a>
-	          	<p>Or</p>
-	          	<a href="register/">Register</a>
-          	</c:otherwise>
-          </c:choose>          
+            <c:when test="${ username != null}">
+              <p>${ username }</p>
+            </c:when>
+            <c:otherwise>
+              <a href="login/">Login</a>
+              <p>Or</p>
+              <a href="register/">Register</a>
+            </c:otherwise>
+          </c:choose>
         </div>
       </div>
     </div>
@@ -58,63 +59,26 @@
     </nav>
   </header>
 
-  
+
   <div class="container-full">
     <div class="product-headline">
       <h1 class="text-center">Top 4 Hot Product</h1>
     </div>
     <div class="row text-center">
-      <div class="col-lg-3 col-md-6 mb-4 margin-top wow bounce">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 margin-top">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+      <c:forEach var="product" items="${ listProduct }">
+        <div class="col-lg-3 col-md-6 mb-4 margin-top wow bounce">
+          <div class="card h-100">
+            <img class="card-img-top" src='<c:url value="${ product.getProduct_image() }"></c:url>' alt="">
+            <div class="card-body">
+              <h4 class="card-title">${ product.getProduct_name() }</h4>
+              <p class="card-text">${ product.getProduct_description() }</p>
+            </div>
+            <div class="card-footer">
+              <a href="#" class="btn btn-primary">Find Out More!</a>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 margin-top">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 mb-4 margin-top">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
-          </div>
-        </div>
-      </div>
+      </c:forEach>
 
     </div>
     <!-- Trending product -->
@@ -127,7 +91,8 @@
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus
+              neque.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -140,7 +105,8 @@
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente,
+              tempore debitis beatae culpa natus architecto.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -153,7 +119,8 @@
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus
+              neque.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -166,7 +133,8 @@
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente,
+              tempore debitis beatae culpa natus architecto.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -185,7 +153,8 @@
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus
+              neque.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -198,7 +167,8 @@
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente,
+              tempore debitis beatae culpa natus architecto.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -211,7 +181,8 @@
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus
+              neque.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -224,7 +195,8 @@
           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente, tempore debitis beatae culpa natus architecto.</p>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo magni sapiente,
+              tempore debitis beatae culpa natus architecto.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -241,10 +213,11 @@
     </div>
   </footer>
   <form action="" method="POST">
-  	<input type="text" name="username"/>
-  	<input type="password" name="password"/>
-  	<button type="submit">Submit</button>
+    <input type="text" name="username" />
+    <input type="password" name="password" />
+    <button type="submit">Submit</button>
   </form>
 </body>
-<jsp:include page="Footer.jsp"/>
+<jsp:include page="Footer.jsp" />
+
 </html>

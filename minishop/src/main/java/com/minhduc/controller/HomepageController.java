@@ -28,7 +28,8 @@ public class HomepageController {
 //			modelMap.addAttribute("username", httpSession.getAttribute("username"));
 //		}
 		httpSession.removeAttribute("username");
-//		List<Product> list = productService.getAllProducts();
+		List<Product> list = productService.getAllProducts();
+		modelMap.addAttribute("listProduct", list);
 		return "Homepage";
 	}
 }

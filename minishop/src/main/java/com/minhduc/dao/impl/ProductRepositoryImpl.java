@@ -31,7 +31,6 @@ public class ProductRepositoryImpl implements ProductRepository {
 	@Transactional
 	@Override
 	public List<Product> getProductsLimit() {
-		
 		return null;
 	}
 }

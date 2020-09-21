@@ -8,5 +8,4 @@ public interface ProductRepository {
 	
 	List<Product> getAllProducts();
 	
-	List<Product> getProductsLimit();
 }

@@ -2,9 +2,12 @@ package com.minhduc.dao.impl;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -24,13 +27,12 @@ public class ProductRepositoryImpl implements ProductRepository {
 	@Transactional
 	@Override
 	public List<Product> getAllProducts() {
-		Session session = mySessionFactory.getCurrentSession();
-		return session.createQuery("FROM Product").getResultList();
-	}
-
-	@Transactional
-	@Override
-	public List<Product> getProductsLimit() {
-		return null;
+		CriteriaBuilder cb = mySessionFactory.getCurrentSession().getCriteriaBuilder();
+	    CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+	    Root<Product> rootEntry = cq.from(Product.class);
+	    CriteriaQuery<Product> all = cq.select(rootEntry);
+	 
+	    TypedQuery<Product> allQuery = mySessionFactory.getCurrentSession().createQuery(all);
+	    return allQuery.getResultList();
 	}
 }

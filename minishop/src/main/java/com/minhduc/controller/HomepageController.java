@@ -3,6 +3,7 @@ package com.minhduc.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,9 @@ public class HomepageController {
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping	
+	
+	@GetMapping
+	@Transactional
 	public String getHomepage(SessionStatus sessionStatus, HttpSession httpSession, ModelMap modelMap) {
 //		System.out.println(staffService.findStaffByUsername("caominhduc").getStaff_address());
 //		if (httpSession.getAttribute("username") != null) {

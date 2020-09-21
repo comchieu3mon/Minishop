@@ -16,7 +16,7 @@
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
 		<property name="url" value="jdbc:mysql://localhost:3306/minishop"/>
 		<property name="username" value="root"/>
-		<property name="password" value="root"/>
+		<property name="password" value="Caominhduc123@"/>
 	</bean>
 
 	<bean id="mySessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">

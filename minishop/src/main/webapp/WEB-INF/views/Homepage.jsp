@@ -74,7 +74,7 @@
               <p class="card-text">${ product.getProduct_description() }</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary">Find Out More!</a>
+              <a href="./detail/${product.getProduct_id()}" class="btn btn-primary">Find Out More!</a>
             </div>
           </div>
         </div>

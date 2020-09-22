@@ -8,4 +8,5 @@ public interface ProductRepository {
 	
 	List<Product> getAllProducts();
 	
+	Product getProductById(int product_id);
 }

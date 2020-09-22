@@ -8,6 +8,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -34,5 +35,17 @@ public class ProductRepositoryImpl implements ProductRepository {
 	 
 	    TypedQuery<Product> allQuery = mySessionFactory.getCurrentSession().createQuery(all);
 	    return allQuery.getResultList();
+	}
+
+	@Override
+	@Transactional
+	public Product getProductById(int product_id) {
+		CriteriaBuilder cb = mySessionFactory.getCurrentSession().getCriteriaBuilder();
+		CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+		Root<Product> rootEntry = cq.from(Product.class);
+		cq.select(rootEntry);
+		cq.where(cb.equal(rootEntry.get("product_id"), product_id));
+		TypedQuery<Product> query = mySessionFactory.getCurrentSession().createQuery(cq);
+		return query.getSingleResult();
 	}
 }

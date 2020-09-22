@@ -36,7 +36,7 @@ public class Product {
 	Set<ProductDetail> productDetails;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name="PRODUCT_DETAIL",
+	@JoinTable(name="promotion_detail",
 	joinColumns = {@JoinColumn(name="product_id",referencedColumnName = "product_id")},
 	inverseJoinColumns = {@JoinColumn(name="promotion_id",referencedColumnName = "promotion_id")})
 	Set<Promotion> promotions;

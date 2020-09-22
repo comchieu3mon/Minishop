@@ -28,7 +28,7 @@ public class Promotion {
 	String promotion_image;
 	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name="PROMOTION_DETAIL",
+	@JoinTable(name="promotion_detail",
 	joinColumns = {@JoinColumn(name="promotion_id",referencedColumnName = "promotion_id")},
 	inverseJoinColumns = {@JoinColumn(name="product_id",referencedColumnName = "product_id")})
 	Set<Product> products;

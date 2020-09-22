@@ -3,26 +3,28 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="UTF-8">
-	<title>Detail</title>
+<meta charset="UTF-8">
+<title>Detail</title>
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
-	<link rel="stylesheet" href='<c:url value="/resources/Styles/custom.css"></c:url>'>
-	<jsp:include page="Header.jsp" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href='<c:url value="/resources/Styles/custom.css"></c:url>'>
+<jsp:include page="Header.jsp" />
 </head>
-
 <body>
 	<header>
 		<div class="header-top">
 			<div class="container flex-box">
-				<a class="logo-brand" href="#"> <img src='<c:url value="/resources/Images/site-logo2.png"/>'
-						width="150px" height="55px" />
+				<a class="logo-brand" href="#"> <img
+					src='<c:url value="/resources/Images/site-logo2.png"/>'
+					width="150px" height="55px" />
 				</a>
 				<form class="form-inline">
-					<i class="fas fa-search" aria-hidden="true"></i> <input class="form-control form-control-sm w-100"
-						type="text" placeholder="Search" aria-label="Search">
+					<i class="fas fa-search" aria-hidden="true"></i> <input
+						class="form-control form-control-sm w-100" type="text"
+						placeholder="Search" aria-label="Search">
 				</form>
 				<div class="login-register-container">
 					<c:choose>
@@ -44,7 +46,7 @@
 					<ul class="navbar-nav">
 						<li class="nav-item active"><a class="nav-link" href="#">Home
 								<span class="sr-only">(current)</span>
-							</a></li>
+						</a></li>
 						<li class="nav-item"><a class="nav-link" href="#">Products</a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="#">Services</a>
@@ -62,10 +64,14 @@
 				Design Using Bootstrap 4.0</div>
 			<div class="row m-0">
 				<div class="col-lg-4 left-side-product-box pb-3">
-					<img src="http://nicesnippets.com/demo/pd-image1.jpg" class="border p-3"> <span class="sub-img">
-						<img src="http://nicesnippets.com/demo/pd-image2.jpg" class="border p-2"> <img
-							src="http://nicesnippets.com/demo/pd-image3.jpg" class="border p-2"> <img
-							src="http://nicesnippets.com/demo/pd-image4.jpg" class="border p-2">
+					<img src="http://nicesnippets.com/demo/pd-image1.jpg"
+						class="border p-3"> <span class="sub-img"> <img
+						src="http://nicesnippets.com/demo/pd-image2.jpg"
+						class="border p-2"> <img
+						src="http://nicesnippets.com/demo/pd-image3.jpg"
+						class="border p-2"> <img
+						src="http://nicesnippets.com/demo/pd-image4.jpg"
+						class="border p-2">
 					</span>
 				</div>
 				<div class="col-lg-8">
@@ -94,7 +100,8 @@
 							</div>
 							<div class="col-lg-12">
 								<h6>Quantity :</h6>
-								<input type="number" class="form-control text-center w-100" value="1">
+								<input type="number" class="form-control text-center w-100"
+									value="1">
 							</div>
 							<div class="col-lg-12 mt-3">
 								<div class="row">
@@ -141,7 +148,8 @@
 
 				<div class="row py-4 d-flex align-items-center">
 
-					<div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+					<div
+						class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
 						<h6 class="mb-0 text-white" style="margin-left: 40px">Get
 							connected with us on social networks!</h6>
 					</div>
@@ -149,13 +157,15 @@
 					<div class="col-md-6 col-lg-7 text-center text-md-right">
 
 						<a class="fb-ic"> <i class="fab fa-facebook-f white-text mr-4">
-							</i>
+						</i>
 						</a> <a class="tw-ic"> <i class="fab fa-twitter white-text mr-4">
-							</i>
-						</a> <a class="gplus-ic"> <i class="fab fa-google-plus-g white-text mr-4"> </i>
-						</a> <a class="li-ic"> <i class="fab fa-linkedin-in white-text mr-4"> </i>
+						</i>
+						</a> <a class="gplus-ic"> <i
+							class="fab fa-google-plus-g white-text mr-4"> </i>
+						</a> <a class="li-ic"> <i
+							class="fab fa-linkedin-in white-text mr-4"> </i>
 						</a> <a class="ins-ic"> <i class="fab fa-instagram white-text">
-							</i>
+						</i>
 						</a>
 
 					</div>
@@ -165,14 +175,16 @@
 			</div>
 		</div>
 
-		<div class="container-fluid text-center text-md-left bg-dark text-white">
+		<div
+			class="container-fluid text-center text-md-left bg-dark text-white">
 
 			<div class="row" style="padding-top: 12px">
 
 				<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
 					<h6 class="text-uppercase font-weight-bold">Company name</h6>
-					<hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto hr-red" style="width: 60px;">
+					<hr class="accent-2 mb-4 mt-0 d-inline-block mx-auto hr-red"
+						style="width: 60px;">
 					<p>Here you can use rows and columns to organize your footer
 						content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 
@@ -181,7 +193,9 @@
 				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
 
 					<h6 class="text-uppercase font-weight-bold">Products</h6>
-					<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto hr-red" style="width: 60px;">
+					<hr
+						class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto hr-red"
+						style="width: 60px;">
 					<p>
 						<a href="#!">MDBootstrap</a>
 					</p>
@@ -200,7 +214,9 @@
 				<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
 
 					<h6 class="text-uppercase font-weight-bold">Useful links</h6>
-					<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto hr-red" style="width: 60px;">
+					<hr
+						class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto hr-red"
+						style="width: 60px;">
 					<p>
 						<a href="#!">Your Account</a>
 					</p>
@@ -219,7 +235,9 @@
 				<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
 
 					<h6 class="text-uppercase font-weight-bold">Contact</h6>
-					<hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto hr-red" style="width: 60px;">
+					<hr
+						class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto hr-red"
+						style="width: 60px;">
 					<p>
 						<i class="fas fa-home mr-3"></i> New York, NY 10012, US
 					</p>
@@ -242,5 +260,4 @@
 	</footer>
 	<jsp:include page="Footer.jsp" />
 </body>
-
 </html>

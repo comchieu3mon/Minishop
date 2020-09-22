@@ -5,11 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "billdetail")
+@Table(name = "bill_detail")
 public class BillDetail {
 
 	@EmbeddedId 
-	BillDetailId chiTietHoaDonId;
+	BillDetailId bill_detail_id;
 	int quantity;
 	String price;
 	
@@ -17,19 +17,19 @@ public class BillDetail {
 		
 	}
 
-	public BillDetail(BillDetailId chiTietHoaDonId, int quantity, String price) {
+	public BillDetail(BillDetailId bill_detail_id, int quantity, String price) {
 		super();
-		this.chiTietHoaDonId = chiTietHoaDonId;
+		this.bill_detail_id = bill_detail_id;
 		this.quantity = quantity;
 		this.price = price;
 	}
 
-	public BillDetailId getChiTietHoaDonId() {
-		return chiTietHoaDonId;
+	public BillDetailId getBill_detail_id() {
+		return bill_detail_id;
 	}
 
-	public void setChiTietHoaDonId(BillDetailId chiTietHoaDonId) {
-		this.chiTietHoaDonId = chiTietHoaDonId;
+	public void setBill_detail_id(BillDetailId bill_detail_id) {
+		this.bill_detail_id = bill_detail_id;
 	}
 
 	public int getQuantity() {
@@ -50,6 +50,6 @@ public class BillDetail {
 
 	@Override
 	public String toString() {
-		return "BillDetail [chiTietHoaDonId=" + chiTietHoaDonId + ", quantity=" + quantity + ", price=" + price + "]";
+		return "BillDetail [bill_detail_id=" + bill_detail_id + ", quantity=" + quantity + ", price=" + price + "]";
 	}
 }

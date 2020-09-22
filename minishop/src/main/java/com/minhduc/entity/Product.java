@@ -31,6 +31,7 @@ public class Product {
 	String product_description;
 	String product_image;
 	
+	
 	@OneToMany(fetch =  FetchType.EAGER,cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
 	Set<ProductDetail> productDetails;
@@ -105,6 +106,7 @@ public class Product {
 
 
 	public Set<ProductDetail> getProductDetails() {
+		System.out.println(productDetails.size());
 		return productDetails;
 	}
 

@@ -78,6 +78,17 @@
 						</div>
 						<div>
 							<span class="posted_in"> <strong>Information:</strong>
+							<div class = row>
+								<div class="col-lg-3">
+									<p style="font-weight: bold;">Size</p>
+								</div>
+								<div class="col-lg-3">
+									<p style="font-weight: bold;">Color</p>
+								</div>
+								<div class="col-lg-3">
+									<p style="font-weight: bold;">Quantity</p>
+								</div>
+							</div>
 							<c:forEach items="${ product.getProductDetails() }" begin="0" end="${ product.getProductDetails().size() }" var="productDetail">
 								<div class="row">
 									<div class="col-lg-3">

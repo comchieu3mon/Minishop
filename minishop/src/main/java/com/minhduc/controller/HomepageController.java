@@ -22,15 +22,12 @@ public class HomepageController {
 	@Autowired
 	private ProductService productService;
 	
-	
 	@GetMapping
 	@Transactional
 	public String getHomepage(SessionStatus sessionStatus, HttpSession httpSession, ModelMap modelMap) {
-//		System.out.println(staffService.findStaffByUsername("caominhduc").getStaff_address());
-//		if (httpSession.getAttribute("username") != null) {
-//			modelMap.addAttribute("username", httpSession.getAttribute("username"));
-//		}
-		httpSession.removeAttribute("username");
+		if (httpSession.getAttribute("username") != null) {
+			modelMap.addAttribute("username", httpSession.getAttribute("username"));
+		}
 		List<Product> list = productService.getAllProducts();
 		modelMap.addAttribute("listProduct", list);
 		return "Homepage";

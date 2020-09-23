@@ -22,8 +22,10 @@ public class ApiController {
 	@GetMapping("checkLogin/")
 	@ResponseBody
 	public String checkLogin(@RequestParam String username, @RequestParam String password, ModelMap modelMap) {
-		modelMap.addAttribute("username", username);
-		System.out.println(staffService.checkLogin(username, password));
+		boolean result = staffService.checkLogin(username, password);
+		if (result == true) {
+			modelMap.addAttribute("username", username);
+		}
 		return staffService.checkLogin(username, password) ? "true" : "false";
 	}
 }

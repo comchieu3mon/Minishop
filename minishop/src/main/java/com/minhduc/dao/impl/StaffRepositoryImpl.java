@@ -23,7 +23,7 @@ public class StaffRepositoryImpl implements StaffRepository{
 	@Override
 	public Staff findStaffByUsername(String username) {
 		Session session = mySessionFactory.getCurrentSession();
-		return (Staff) session.createQuery("FROM Staff WHERE username='" + username +"'").getResultList().get(0);
+		return (Staff) session.createQuery("FROM Staff WHERE staff_username='" + username +"'").getResultList().get(0);
 	}
 
 	@Override

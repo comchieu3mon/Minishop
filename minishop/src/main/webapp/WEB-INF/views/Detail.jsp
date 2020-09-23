@@ -119,7 +119,7 @@
 								</c:forEach>
 						</div>
 						<div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">$544</span> <span
-								class="pro-price"> $${ product.getProduct_price() }</span></div>
+								class="pro-price" data-product-price="${ product.getProduct_price() }"> $${ product.getProduct_price() }</span></div>
 						<div class="form-group row mt-3">
 							<label class="col-sm-2 col-form-label pl-0">Quantity</label>
 							<div class="col-sm-10">

@@ -34,11 +34,11 @@ $(document).ready(function() {
 		let quantity = $(this).parent().parent().find(".quantity").text().trim();
 		let size_id = $(this).parent().parent().find(".size").attr("data-size-id").trim();
 		let color_id = $(this).parent().parent().find(".color").attr("data-color-id").trim();
-		let product_price = $(".pro-price").text().trim();
+		let product_price = $(".pro-price").attr("data-product-price");
 		let product_id = $(".pro-d-title").attr("data-product-id").trim();
 		let product_name = $(".pro-d-title").text().trim();
 
-		console.log(size_id + " " + size_name + " " + color_id + " " + color_name);
+		console.log(product_price);
 
 		$.ajax({
 			type: "GET",

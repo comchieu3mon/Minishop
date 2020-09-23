@@ -35,14 +35,8 @@ public class RegisterController {
 	
 	@PostMapping
 	public String handleRegister(@RequestParam String email, @RequestParam String fullname, @RequestParam String address, @RequestParam String phonenumber, @RequestParam String username, @RequestParam String password) {
-//		Staff staff = new Staff();
-//		staff.setUsername(username);
-//		staff.setPassword(password);
-//		staff.setStaff_address(address);
-//		staff.setStaff_phone(phonenumber);
-//		staff.setStaff_email(email);
-//		staff.setStaff_name(fullname);
-//		staffService.addStaff(staff);
+
+		//staffService.addStaff(staff);
 		return "Register";
 	}
 }

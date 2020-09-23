@@ -76,7 +76,7 @@
 
 					</div>
 					<div class="col-md-6" style="padding-left: 50px">
-						<h4 class="pro-d-title">
+						<h4 class="pro-d-title" data-product-id="${ product.getProduct_id() }">
 							${ product.getProduct_name() }
 						</h4>
 						<p>
@@ -102,17 +102,17 @@
 								<c:forEach items="${ product.getProductDetails() }" begin="0"
 									end="${ product.getProductDetails().size() }" var="productDetail">
 									<div class="row">
-										<div class="col-lg-3 text-center">
+										<div class="col-lg-3 text-center size" data-size-id="${ productDetail.getSize().getSize_id() }">
 											<p>${ productDetail.getSize().getSize_name() }</p>
 										</div>
-										<div class="col-lg-3 text-center">
+										<div class="col-lg-3 text-center color" data-color-id="${ productDetail.getColor().getColor_id() }">
 											<p>${ productDetail.getColor().getColor_name() }</p>
 										</div>
-										<div class="col-lg-3 text-center">
+										<div class="col-lg-3 text-center quantity" data-quantity="${ productDetail.getQuantity() }">
 											<p>${ productDetail.getQuantity() }</p>
 										</div>
 										<div>
-											<button type="button" class="btn btn-primary" style="padding: 1px 5px;">Add
+											<button type="button" class="btn-add-to-cart btn btn-primary" style="padding: 1px 5px;"><i class="fa fa-shopping-cart mr-1"></i>Add
 												To Cart</button>
 										</div>
 									</div>
@@ -126,10 +126,6 @@
 								<input type="text" placeholder="1" class="form-control w-25">
 							</div>
 						</div>
-						<p>
-							<button class="btn btn-round btn-danger" type="button"><i class="fa fa-shopping-cart"></i>
-								Add to Cart</button>
-						</p>
 					</div>
 				</div>
 			</section>

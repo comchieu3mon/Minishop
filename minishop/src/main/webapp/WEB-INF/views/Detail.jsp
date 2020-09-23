@@ -45,7 +45,16 @@
 						<li class="nav-item active"><a class="nav-link" href="#">Home
 								<span class="sr-only">(current)</span>
 							</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Products</a>
+						<li class="nav-item drop-menu">
+							<div class="dropdown">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Category</a>
+								<div class="dropdown-menu">
+									<c:forEach items="${ listCategory }" var="category">
+										<a class="dropdown-item" href="./category/${ category.getCategory_name() }">${
+											category.getCategory_name() }</a>
+									</c:forEach>
+								</div>
+							</div>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="#">Services</a>
 						</li>
@@ -68,43 +77,46 @@
 					</div>
 					<div class="col-md-6" style="padding-left: 50px">
 						<h4 class="pro-d-title">
-							${ product.getProduct_name() }			
+							${ product.getProduct_name() }
 						</h4>
 						<p>
 							${ product.getProduct_description() }
 						</p>
 						<div class="product_meta">
-							<span class="posted_in"> <strong>Categories:</strong> <a rel="tag" href="#">${ product.getCategory().getCategory_name() }</a>
+							<span class="posted_in"> <strong>Categories:</strong> <a rel="tag" href="#">${
+									product.getCategory().getCategory_name() }</a>
 						</div>
 						<div>
 							<span class="posted_in"> <strong>Information:</strong>
-							<div class = row>
-								<div class="col-lg-3 text-center">
-									<p style="font-weight: bold;">Size</p>
-								</div>
-								<div class="col-lg-3 text-center">
-									<p style="font-weight: bold;">Color</p>
-								</div>
-								<div class="col-lg-3 text-center">
-									<p style="font-weight: bold;">Quantity</p>
-								</div>
-							</div>
-							<c:forEach items="${ product.getProductDetails() }" begin="0" end="${ product.getProductDetails().size() }" var="productDetail">
-								<div class="row">
+								<div class=row>
 									<div class="col-lg-3 text-center">
-										<p>${ productDetail.getSize().getSize_name() }</p>
+										<p style="font-weight: bold;">Size</p>
 									</div>
 									<div class="col-lg-3 text-center">
-										<p>${ productDetail.getColor().getColor_name() }</p>
+										<p style="font-weight: bold;">Color</p>
 									</div>
 									<div class="col-lg-3 text-center">
-										<p>${ productDetail.getQuantity() }</p>
-									</div>
-									<div>
-										<button type="button" class="btn btn-primary" style="padding: 1px 5px;">Add To Cart</button>
+										<p style="font-weight: bold;">Quantity</p>
 									</div>
 								</div>
-							</c:forEach>
+								<c:forEach items="${ product.getProductDetails() }" begin="0"
+									end="${ product.getProductDetails().size() }" var="productDetail">
+									<div class="row">
+										<div class="col-lg-3 text-center">
+											<p>${ productDetail.getSize().getSize_name() }</p>
+										</div>
+										<div class="col-lg-3 text-center">
+											<p>${ productDetail.getColor().getColor_name() }</p>
+										</div>
+										<div class="col-lg-3 text-center">
+											<p>${ productDetail.getQuantity() }</p>
+										</div>
+										<div>
+											<button type="button" class="btn btn-primary" style="padding: 1px 5px;">Add
+												To Cart</button>
+										</div>
+									</div>
+								</c:forEach>
 						</div>
 						<div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">$544</span> <span
 								class="pro-price"> $${ product.getProduct_price() }</span></div>

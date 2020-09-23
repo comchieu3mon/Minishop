@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.minhduc.dao.ProductRepository;
-import com.minhduc.entity.Category;
 import com.minhduc.entity.Product;
 import com.minhduc.service.ProductService;
 

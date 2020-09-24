@@ -33,6 +33,15 @@
 							<a href="login/">Login</a>
 							<p>Or</p>
 							<a href="register/">Register</a>
+							<div style="position: relative;">
+								<i class="fas fa-shopping-cart" style="padding-top: 20px; padding-left: 10px"></i>
+								<c:if test="${ cartsSize == 0 || cartsSize == null}">
+									<p id="cart-icon">${ cartsSize }</p>
+								</c:if>
+								<c:if test="${ cartsSize > 0 }">
+									<p class="cart-icon">${ cartsSize }</p>
+								</c:if>								
+							</div>
 						</c:otherwise>
 					</c:choose>
 				</div>

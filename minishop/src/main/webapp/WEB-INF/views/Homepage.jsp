@@ -30,6 +30,10 @@
 							<a href="login/">Login</a>
 							<p>Or</p>
 							<a href="register/">Register</a>
+							<div style="position: relative;">
+								<i class="fas fa-shopping-cart" style="padding-top: 20px; padding-left: 10px"></i>
+								<p class="cart-icon">${ carts.size() }</p>
+							</div>
 						</c:otherwise>
 					</c:choose>
 				</div>

@@ -209,3 +209,16 @@
 	border: 2px #6351ce solid;	
 }
 
+/* CSS For cart icon */
+.cart-icon {
+    margin: 0;
+    position: absolute;
+    top: 5px;
+    left: 26px;
+    background: red;
+    border-radius: 100%;
+    padding: 3px 7px !important;
+    font-size: 10px;
+    color: white !important;
+}
+

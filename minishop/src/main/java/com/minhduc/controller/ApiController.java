@@ -49,24 +49,34 @@ public class ApiController {
 			httpSession.setAttribute("carts", carts);
 		} else {
 			boolean checkProductExistInCart = checkProductExistInCart(httpSession, product_id, size_id, color_id);
-			if (!checkProductExistInCart) {
+			if (checkProductExistInCart == false) {
 				Cart cart = new Cart(product_id, product_name, product_price, color_id, color_name, size_id, size_name, quantity);
 				List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
 				cartList.add(cart);
-				httpSession.setAttribute("carts", carts);
+				httpSession.setAttribute("carts", cartList);
 			} else {
 				List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
 				int pos = getProductInSessionCartPosition(httpSession, product_id, size_id, color_id);
 				int newQuantity = cartList.get(pos).getQuantity() + 1;
 				cartList.get(pos).setQuantity(newQuantity);
+				httpSession.setAttribute("carts", cartList);
 			}
-		}
-		List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
-		for (Cart cart : cartList) {
-			System.out.println("Inside session cart: " + cart.getProduct_name() + cart.getQuantity());
 		}
 	}
 	
+	@GetMapping("/getCartQuantity/")
+	@ResponseBody
+	@SuppressWarnings("unchecked")
+	public String getCartQuantity(HttpSession httpSession) {
+		String res = "";
+		if (httpSession.getAttribute("carts") != null) {
+			List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
+			res = String.valueOf(cartList.size());
+		}
+		return res;
+	}
+	
+	@SuppressWarnings("unchecked")
 	private boolean checkProductExistInCart(HttpSession httpSession ,int product_id, int size_id, int color_id) {
 		boolean res = false;
 		List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
@@ -78,6 +88,7 @@ public class ApiController {
 		return res;
 	}
 	
+	@SuppressWarnings("unchecked")
 	private int getProductInSessionCartPosition(HttpSession httpSession, int product_id, int size_id, int color_id) {
 		int pos = -1;
 		List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");

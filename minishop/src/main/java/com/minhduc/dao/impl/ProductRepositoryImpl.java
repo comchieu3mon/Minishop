@@ -1,6 +1,7 @@
 package com.minhduc.dao.impl;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -20,20 +21,20 @@ import com.minhduc.entity.Product;
 @Repository
 @Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class ProductRepositoryImpl implements ProductRepository {
-	
+
 	@Autowired
 	private SessionFactory mySessionFactory;
-	
+
 	@Transactional
 	@Override
 	public List<Product> getAllProducts() {
 		CriteriaBuilder cb = mySessionFactory.getCurrentSession().getCriteriaBuilder();
-	    CriteriaQuery<Product> cq = cb.createQuery(Product.class);
-	    Root<Product> rootEntry = cq.from(Product.class);
-	    CriteriaQuery<Product> all = cq.select(rootEntry);
-	 
-	    TypedQuery<Product> allQuery = mySessionFactory.getCurrentSession().createQuery(all);
-	    return allQuery.getResultList();
+		CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+		Root<Product> rootEntry = cq.from(Product.class);
+		CriteriaQuery<Product> all = cq.select(rootEntry);
+
+		TypedQuery<Product> allQuery = mySessionFactory.getCurrentSession().createQuery(all);
+		return allQuery.getResultList();
 	}
 
 	@Override
@@ -46,5 +47,13 @@ public class ProductRepositoryImpl implements ProductRepository {
 		cq.where(cb.equal(rootEntry.get("product_id"), product_id));
 		TypedQuery<Product> query = mySessionFactory.getCurrentSession().createQuery(cq);
 		return query.getSingleResult();
+	}
+
+	@Override
+	@Transactional
+	public List<Product> getProductsByCategoryName(String category_name) {
+		return getAllProducts().stream()
+				.filter(product -> product.getCategory().getCategory_name().equals(category_name))
+				.collect(Collectors.toList());
 	}
 }

@@ -32,7 +32,9 @@
 							<a href="register/">Register</a>
 							<div style="position: relative;">
 								<i class="fas fa-shopping-cart" style="padding-top: 20px; padding-left: 10px"></i>
-								<p class="cart-icon">${ carts.size() }</p>
+								<c:if test="${ cartsSize > 0 }">
+									<p class="cart-icon">${ cartsSize }</p>
+								</c:if>								
 							</div>
 						</c:otherwise>
 					</c:choose>

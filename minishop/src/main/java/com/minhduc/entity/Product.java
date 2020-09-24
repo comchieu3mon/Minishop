@@ -1,4 +1,5 @@
 package com.minhduc.entity;
+
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,35 +16,34 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="product")
+@Table(name = "product")
 public class Product {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int product_id;
-	
+
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "category_id")
 	Category category;
-	
+
 	String product_name;
 	String product_price;
 	String product_description;
 	String product_image;
-	
-	
-	@OneToMany(fetch =  FetchType.EAGER,cascade = CascadeType.ALL)
+
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id")
 	Set<ProductDetail> productDetails;
-	
+
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name="promotion_detail",
-	joinColumns = {@JoinColumn(name="product_id",referencedColumnName = "product_id")},
-	inverseJoinColumns = {@JoinColumn(name="promotion_id",referencedColumnName = "promotion_id")})
+	@JoinTable(name = "promotion_detail", joinColumns = {
+			@JoinColumn(name = "product_id", referencedColumnName = "product_id") }, inverseJoinColumns = {
+					@JoinColumn(name = "promotion_id", referencedColumnName = "promotion_id") })
 	Set<Promotion> promotions;
-	
+
 	public Product() {
-		
+
 	}
 
 	public Product(Category category, String product_name, String product_price, String product_description,
@@ -104,7 +104,6 @@ public class Product {
 		this.product_image = product_image;
 	}
 
-
 	public Set<ProductDetail> getProductDetails() {
 		System.out.println(productDetails.size());
 		return productDetails;
@@ -126,7 +125,7 @@ public class Product {
 	public String toString() {
 		return "Product [product_id=" + product_id + ", category=" + category + ", product_name=" + product_name
 				+ ", product_price=" + product_price + ", product_description=" + product_description
-				+ ", product_image=" + product_image +  ", productDetails=" + productDetails
-				+ ", promotions=" + promotions + "]";
+				+ ", product_image=" + product_image + ", productDetails=" + productDetails + ", promotions="
+				+ promotions + "]";
 	}
 }

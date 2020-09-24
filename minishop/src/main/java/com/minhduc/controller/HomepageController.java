@@ -20,13 +20,13 @@ import com.minhduc.service.ProductService;
 @Controller
 @RequestMapping("/")
 public class HomepageController {
-	
+
 	@Autowired
 	private ProductService productService;
-	
+
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@GetMapping
 	@SuppressWarnings("unchecked")
 	public String getHomepage(SessionStatus sessionStatus, HttpSession httpSession, ModelMap modelMap) {
@@ -35,12 +35,13 @@ public class HomepageController {
 		}
 		if (httpSession.getAttribute("carts") != null) {
 			List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
-			modelMap.addAttribute("carts", cartList);
+			modelMap.addAttribute("cartsSize", cartList.size());
 		}
 		List<Category> categoryList = categoryService.getAllCategory();
 		List<Product> list = productService.getAllProducts();
 		modelMap.addAttribute("listProduct", list);
 		modelMap.addAttribute("listCategory", categoryList);
+
 		return "Homepage";
 	}
 }

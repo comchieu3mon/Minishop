@@ -33,7 +33,6 @@ public class DetailController {
 	public String getDetailPage2(@PathVariable(name = "id") int product_id, ModelMap modelMap, HttpSession httpSession) {
 		if (httpSession.getAttribute("carts") != null) {
 			List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
-			System.out.println("size ne" + cartList.size());
 			modelMap.addAttribute("cartsSize", cartList.size());
 		}
 		Product product = productService.getProductById(product_id);

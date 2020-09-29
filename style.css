@@ -1,0 +1,23 @@
+.minus .plus {
+  border: 1px solid black;
+  border-radius: 2px;
+  background: white;
+  margin: 0;
+}
+
+.btn {
+  margin: 0;
+  padding: 0;
+  height: 10px;
+  width: 10px;
+}
+
+.adjust-container {
+  display: inline-block;
+  position: relative;
+  top: 10px;
+}
+
+.btn-block {
+  margin: 0;
+}

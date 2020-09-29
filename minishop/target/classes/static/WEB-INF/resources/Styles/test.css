@@ -222,3 +222,8 @@
     color: white !important;
 }
 
+.quantity {
+    padding-top: 3px;
+    padding-bottom: 7px;
+    padding-left: 5px;
+}

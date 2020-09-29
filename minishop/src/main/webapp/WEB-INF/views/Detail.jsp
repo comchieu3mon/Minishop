@@ -79,7 +79,7 @@
 			<section class="panel">
 				<div class="panel-body row">
 					<div class="col-md-6">
-						<div class="pro-img-details">
+						<div class="pro-img-details" data-product-image-url="${ product.getProduct_image() }">
 							<img src="${ product.getProduct_image() }" alt="">
 						</div>
 

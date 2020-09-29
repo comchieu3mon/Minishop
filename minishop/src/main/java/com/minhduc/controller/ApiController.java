@@ -42,15 +42,15 @@ public class ApiController {
 	@GetMapping("/addToCart/")
 	@SuppressWarnings("unchecked")
 	@ResponseBody
-	public void addToCart(@RequestParam(name = "product_id") int product_id, @RequestParam(name = "product_name") String product_name, @RequestParam(name = "size_id") int size_id, @RequestParam(name = "size_name") String size_name, @RequestParam(name = "color_id") int color_id, @RequestParam(name = "color_name") String color_name, @RequestParam(name = "quantity") int quantity, @RequestParam(name = "product_price") int product_price, HttpSession httpSession) {
+	public void addToCart(@RequestParam(name = "product_id") int product_id, @RequestParam(name = "product_name") String product_name, @RequestParam(name = "size_id") int size_id, @RequestParam(name = "size_name") String size_name, @RequestParam(name = "color_id") int color_id, @RequestParam(name = "color_name") String color_name, @RequestParam(name = "quantity") int quantity, @RequestParam(name = "product_price") int product_price, @RequestParam(name = "product_image_url") String product_image_url, HttpSession httpSession) {
 		if (httpSession.getAttribute("carts") == null) {
-			Cart cart = new Cart(product_id, product_name, product_price, color_id, color_name, size_id, size_name, quantity);
+			Cart cart = new Cart(product_id, product_name, product_price, color_id, color_name, size_id, size_name, quantity, product_image_url);
 			carts.add(cart);
 			httpSession.setAttribute("carts", carts);
 		} else {
 			boolean checkProductExistInCart = checkProductExistInCart(httpSession, product_id, size_id, color_id);
 			if (checkProductExistInCart == false) {
-				Cart cart = new Cart(product_id, product_name, product_price, color_id, color_name, size_id, size_name, quantity);
+				Cart cart = new Cart(product_id, product_name, product_price, color_id, color_name, size_id, size_name, quantity, product_image_url);
 				List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
 				cartList.add(cart);
 				httpSession.setAttribute("carts", cartList);

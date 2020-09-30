@@ -28,9 +28,9 @@
                             <p>${ username }</p>
                         </c:when>
                         <c:otherwise>
-                            <a href="login/">Login</a>
+                            <a href="../login/">Login</a>
                             <p>Or</p>
-                            <a href="register/">Register</a>
+                            <a href="../register/">Register</a>
                             <div style="position: relative;">
                                 <i class="fas fa-shopping-cart" style="padding-top: 20px; padding-left: 10px"></i>
                                 <c:if test="${ cartsSize > 0 }">
@@ -54,7 +54,7 @@
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Category</a>
                                 <div class="dropdown-menu">
                                     <c:forEach items="${ listCategory }" var="category">
-                                        <a class="dropdown-item" href="./category/${ category.getCategory_name() }">${
+                                        <a class="dropdown-item" href="./${ category.getCategory_name() }">${
                                             category.getCategory_name() }</a>
                                     </c:forEach>
                                 </div>
@@ -80,7 +80,7 @@
                             <p class="card-text">${ product.getProduct_description() }</p>
                         </div>
                         <div class="card-footer">
-                            <a href="./detail/${product.getProduct_id()}" class="btn btn-primary">Find Out More!</a>
+                            <a href="../detail/${product.getProduct_id()}" class="btn btn-primary">Find Out More!</a>
                         </div>
                     </div>
                 </div>

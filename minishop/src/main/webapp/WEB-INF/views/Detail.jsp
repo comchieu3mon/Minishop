@@ -30,9 +30,9 @@
 							<p>${ username }</p>
 						</c:when>
 						<c:otherwise>
-							<a href="login/">Login</a>
+							<a href="../login/">Login</a>
 							<p>Or</p>
-							<a href="register/">Register</a>
+							<a href="../register/">Register</a>
 							<div style="position: relative;">
 								<i class="fas fa-shopping-cart" style="padding-top: 20px; padding-left: 10px"></i>
 								<c:if test="${ cartsSize == 0 || cartsSize == null}">
@@ -40,7 +40,7 @@
 								</c:if>
 								<c:if test="${ cartsSize > 0 }">
 									<p class="cart-icon">${ cartsSize }</p>
-								</c:if>								
+								</c:if>
 							</div>
 						</c:otherwise>
 					</c:choose>
@@ -59,7 +59,7 @@
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Category</a>
 								<div class="dropdown-menu">
 									<c:forEach items="${ listCategory }" var="category">
-										<a class="dropdown-item" href="./category/${ category.getCategory_name() }">${
+										<a class="dropdown-item" href="../category/${ category.getCategory_name() }">${
 											category.getCategory_name() }</a>
 									</c:forEach>
 								</div>
@@ -111,24 +111,29 @@
 								<c:forEach items="${ product.getProductDetails() }" begin="0"
 									end="${ product.getProductDetails().size() }" var="productDetail">
 									<div class="row">
-										<div class="col-lg-3 text-center size" data-size-id="${ productDetail.getSize().getSize_id() }">
+										<div class="col-lg-3 text-center size"
+											data-size-id="${ productDetail.getSize().getSize_id() }">
 											<p>${ productDetail.getSize().getSize_name() }</p>
 										</div>
-										<div class="col-lg-3 text-center color" data-color-id="${ productDetail.getColor().getColor_id() }">
+										<div class="col-lg-3 text-center color"
+											data-color-id="${ productDetail.getColor().getColor_id() }">
 											<p>${ productDetail.getColor().getColor_name() }</p>
 										</div>
-										<div class="col-lg-3 text-center quantity" data-quantity="${ productDetail.getQuantity() }">
+										<div class="col-lg-3 text-center quantity"
+											data-quantity="${ productDetail.getQuantity() }">
 											<p>${ productDetail.getQuantity() }</p>
 										</div>
 										<div>
-											<button type="button" class="btn-add-to-cart btn btn-primary" style="padding: 1px 5px;"><i class="fa fa-shopping-cart mr-1"></i>Add
+											<button type="button" class="btn-add-to-cart btn btn-primary"
+												style="padding: 1px 5px;"><i class="fa fa-shopping-cart mr-1"></i>Add
 												To Cart</button>
 										</div>
 									</div>
 								</c:forEach>
 						</div>
 						<div class="m-bot15"> <strong>Price : </strong> <span class="amount-old">$544</span> <span
-								class="pro-price" data-product-price="${ product.getProduct_price() }"> $${ product.getProduct_price() }</span></div>
+								class="pro-price" data-product-price="${ product.getProduct_price() }"> $${
+								product.getProduct_price() }</span></div>
 						<div class="form-group row mt-3">
 							<label class="col-sm-2 col-form-label pl-0">Quantity</label>
 							<div class="col-sm-10">

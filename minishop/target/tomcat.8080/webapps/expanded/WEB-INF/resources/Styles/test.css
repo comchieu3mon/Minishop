@@ -1,0 +1,229 @@
+@charset "UTF-8";
+
+@charset "ISO-8859-1";
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS for Homepage start*/
+.flex-box {
+    display: flex;
+}
+
+.logo-brand {
+    padding-top: 15px;
+}
+
+.form-inline {
+    position: relative;
+    width: 80%;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.form-inline input[type="text"] {
+    padding: 25px;
+}
+
+.form-inline i {
+    position: absolute;
+    right: 5px;
+}
+
+.login-register-container {
+    display: flex;
+    padding-top: 15px;
+}
+
+.login-register-container p {
+    padding: 15px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.login-register-container a {
+    padding: 15px;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.login-register-container a:hover{
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-item {
+    margin-right: 70px;
+    color: white;
+}
+
+.margin-top {
+    margin-top: 25px;
+}
+
+.product-headline {
+    background-color: #f8f7f7;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    text-transform: uppercase;
+    font-family: inherit;
+}
+
+.container-full {
+    width: 100%;
+}
+
+.row {
+    padding: 0px 15px;
+}
+
+
+.navbar .nav-item .dropdown-menu {
+  display: none;
+}
+.navbar .nav-item:hover .nav-link {
+  color: #fff;
+}
+.navbar .nav-item:hover .dropdown-menu {
+  display: block;
+}
+.navbar .nav-item .dropdown-menu {
+  margin-top: 0;
+}
+
+/* CSS for Homepage end */
+
+/* CSS for Login page start */
+#login-body {
+    background-image: url("../Images/gradient-background.jpg");
+    background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.login-form {
+    background-color: whitesmoke;
+    width: 500px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-heading {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: #333333;
+    text-transform: uppercase;
+    padding: 50px 0px;
+}
+
+.login-username, .login-password {
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 30px;
+}
+
+.login-username input[type=text], .login-password input[type=password] {
+    outline: none;
+    border: none;
+    color: #686868;
+    border-radius: 3px;
+    background-color: #e6e6e6;
+    padding: 5px 5px;
+    transition: .3s;
+    padding: 20px 30px 20px 50px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.login-username input[type=text]:focus, .login-password input[type=password]:focus {
+    border-color: #d33f8d;
+    box-shadow: 0 0 8px 0 #d33f8d;
+}
+
+.user-icon, .lock-icon {
+    position: absolute;
+    left: 8px;
+    top: 25px;
+}
+
+.login-button {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background-color: #d33f8d;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 1s;
+}
+
+.login-button:hover {
+    background-color: #88cef7;
+}
+
+.login-alternative {
+    margin-top: 30px;
+    padding-bottom: 50px;
+}
+
+.login-alternative p{
+    text-align: center;
+    color: #999999;
+    margin-bottom: 45px;
+}
+
+.facebook-link, .google-link {
+    border: 1px lightskyblue solid;
+    width: 250px;
+    margin-left: 10%;
+    transition: .5s;
+    padding: 5px 50px 5px 50px;
+}
+
+.google-link {
+    margin-left: 5%;
+}
+
+.facebook-link:hover, .google-link:hover {
+    border: 1px #d33f8d solid;
+    text-decoration: none;
+    color: #d33f8d;
+}
+
+.facebook-link i, .google-link i {
+    margin-right: 5px;
+}
+/* CSS for Login page end */
+
+/* CSS For Footer */
+.hr-red {
+	border: 2px #6351ce solid;	
+}
+
+/* CSS For cart icon */
+.cart-icon {
+    margin: 0;
+    position: absolute;
+    top: 5px;
+    left: 26px;
+    background: red;
+    border-radius: 100%;
+    padding: 3px 7px !important;
+    font-size: 10px;
+    color: white !important;
+}
+
+.quantity {
+    padding-top: 3px;
+    padding-bottom: 7px;
+    padding-left: 5px;
+}

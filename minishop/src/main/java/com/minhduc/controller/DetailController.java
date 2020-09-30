@@ -21,7 +21,7 @@ import com.minhduc.service.CategoryService;
 @Controller
 @RequestMapping("/detail")
 public class DetailController {
-	
+	// test
 	@Autowired
 	private ProductService productService;
 

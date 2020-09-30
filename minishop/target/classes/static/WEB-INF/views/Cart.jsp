@@ -116,7 +116,7 @@
                                                 class="current-price d-flex justify-content-between align-items-center">
                                                 <div>
                                                     <a href="#!" type="button"
-                                                        class="card-link-secondary small text-uppercase mr-3"><i
+                                                        class="remove-button card-link-secondary small text-uppercase mr-3"><i
                                                             class="fas fa-trash-alt mr-1"></i> Remove item </a>
 
                                                 </div>

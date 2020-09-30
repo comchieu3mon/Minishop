@@ -24,7 +24,6 @@ public class ApiController {
 	
 	private List<Cart> carts = new ArrayList<Cart>();
 
-	
 	@Autowired
 	StaffService staffService;
 	
@@ -38,6 +37,19 @@ public class ApiController {
 		return staffService.checkLogin(username, password) ? "true" : "false";
 	}
 	
+	@GetMapping("/removeItem/")
+	@SuppressWarnings("unchecked")
+	@ResponseBody
+	public void removeItemFromCart(HttpSession httpSession , @RequestParam(name = "product_id") int product_id, @RequestParam(name = "color_id") int color_id, @RequestParam(name = "size_id") int size_id) {
+		if (httpSession.getAttribute("carts") != null) {
+			List<Cart> listCart = (List<Cart>) httpSession.getAttribute("carts");
+			int pos = findProductPosInCart(httpSession, product_id, size_id, color_id);
+			if (pos != -1) {
+				listCart.remove(pos);
+				httpSession.setAttribute("carts", listCart);
+			}
+		}
+	}
 	
 	@GetMapping("/addToCart/")
 	@SuppressWarnings("unchecked")

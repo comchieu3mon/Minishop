@@ -144,6 +144,45 @@ $(document).ready(function () {
       .change(calculateTotal());
   });
 
+  $(".remove-button").click(function () {
+    let self = $(this);
+    let product_id = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".product-id")
+      .attr("data-product-id");
+    let color_id = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".product-color")
+      .attr("data-color-id");
+    let size_id = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".product-size")
+      .attr("data-size-id");
+    console.log(product_id);
+    console.log(size_id);
+    console.log(color_id);
+
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/Hibernate/api/removeItem/",
+      data: {
+        product_id: product_id,
+        color_id: color_id,
+        size_id: size_id,
+      },
+      success: function () {
+        self.parent().parent().parent().parent().parent().remove();
+        calculateTotal();
+      },
+    });
+  });
+
   calculateTotal();
 
   function calculateTotal() {

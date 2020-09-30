@@ -21,9 +21,13 @@ public class CartController {
 	private CategoryRepository categoryRepository;
 	
 	@GetMapping
+	@SuppressWarnings("unchecked")
 	public String getCartPage(HttpSession httpSession, ModelMap modelMap) {
 		if (httpSession.getAttribute("carts") != null) {
 			List<Cart> listCart =(List<Cart>) httpSession.getAttribute("carts");
+			for (Cart cart : listCart) {
+				System.out.println(cart.getProduct_id() + " " + cart.getColor_id() + " " + cart.getSize_id() + " " + cart.getQuantity());
+			}
 			modelMap.addAttribute("listCart", listCart);
 		}
 		modelMap.addAttribute("listCategory", categoryRepository.getAllCategory());

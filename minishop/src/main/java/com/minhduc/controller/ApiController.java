@@ -64,6 +64,19 @@ public class ApiController {
 		}
 	}
 	
+	@GetMapping("/updateCart/")
+	@ResponseBody
+	@SuppressWarnings("unchecked")
+	public void updateCart(HttpSession httpSession, @RequestParam(name = "product_id") int product_id, @RequestParam(name = "color_id") int color_id, @RequestParam(name = "size_id") int size_id, @RequestParam(name = "quantity") int quantity) {
+		if (httpSession.getAttribute("carts") != null) {
+			List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
+			int pos = findProductPosInCart(httpSession, product_id, size_id, color_id);
+			if (pos != -1) {
+				cartList.get(pos).setQuantity(quantity);
+			}
+		}
+	}
+	
 	@GetMapping("/getCartQuantity/")
 	@ResponseBody
 	@SuppressWarnings("unchecked")
@@ -72,6 +85,19 @@ public class ApiController {
 		if (httpSession.getAttribute("carts") != null) {
 			List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
 			res = String.valueOf(cartList.size());
+		}
+		return res;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private int findProductPosInCart(HttpSession httpSession ,int product_id, int size_id, int color_id) {
+		int res = -1;
+		List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
+		for (int i = 0; i < cartList.size(); ++i) {
+			Cart cart = cartList.get(i);
+			if (cart.getProduct_id() == product_id && cart.getColor_id() == color_id && cart.getSize_id() == size_id) {
+				return res = i;
+			}
 		}
 		return res;
 	}

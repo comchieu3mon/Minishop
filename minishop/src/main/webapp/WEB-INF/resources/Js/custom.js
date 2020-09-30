@@ -102,6 +102,37 @@ $(document).ready(function () {
     );
     let quantity = parseInt($(this).val());
     let total = product_price * quantity;
+
+    let product_id = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".product-id")
+      .attr("data-product-id");
+    let color_id = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".product-color")
+      .attr("data-color-id");
+    let size_id = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".product-size")
+      .attr("data-size-id");
+
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/Hibernate/api/updateCart/",
+      data: {
+        product_id: product_id,
+        color_id: color_id,
+        size_id: size_id,
+        quantity: quantity,
+      },
+    });
+
     $(this)
       .parent()
       .parent()
@@ -120,7 +151,6 @@ $(document).ready(function () {
     $(".summary").each(function () {
       total = total + parseInt($(this).text().substr(1));
     });
-    console.log(total);
     $("#temporary-amount").text("$" + total);
   }
 });

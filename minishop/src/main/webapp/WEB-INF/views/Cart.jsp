@@ -87,10 +87,14 @@
                                         <div>
                                             <div class="d-flex justify-content-between">
                                                 <div>
+                                                    <input type="hidden" class="product-id"
+                                                        data-product-id="${ product.getProduct_id() }" />
                                                     <h5>${ product.getProduct_name() }</h5>
-                                                    <p class="mb-2 text-muted text-uppercase small">Color: ${
+                                                    <p class="mb-2 text-muted text-uppercase small product-color"
+                                                        data-color-id="${ product.getColor_id() }">Color: ${
                                                         product.getColor_name() }</p>
-                                                    <p class="mb-3 text-muted text-uppercase small">Size: ${
+                                                    <p class="mb-3 text-muted text-uppercase small product-size"
+                                                        data-size-id="${ product.getSize_id() }">Size: ${
                                                         product.getSize_name() }</p>
                                                 </div>
                                                 <div>
@@ -98,7 +102,7 @@
                                                         <button class="btn border minus"><i class="fa fa-minus"
                                                                 aria-hidden="true"></i></button>
                                                         <input id="quantity" class="quantity" min="0" name="quantity"
-                                                            value="1" type="number">
+                                                            value="${ product.getQuantity() }" type="number">
                                                         <button class="btn border plus"><i class="fa fa-plus"
                                                                 aria-hidden="true"></i></button>
                                                     </div>
@@ -119,8 +123,8 @@
                                                 <p class="mb-0"><span><strong
                                                             data-product-price="${ product.getProduct_price() }"
                                                             id="summary" class="summary">$${
-                                                            product.getProduct_price() }</strong></span></p
-                                                    class="mb-0">
+                                                            product.getProduct_price() * product.getQuantity()
+                                                            }</strong></span></p class="mb-0">
                                             </div>
                                         </div>
                                     </div>

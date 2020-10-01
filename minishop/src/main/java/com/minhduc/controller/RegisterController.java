@@ -3,22 +3,16 @@ package com.minhduc.controller;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.minhduc.entity.Staff;
-import com.minhduc.service.StaffService;
 
 @Controller
 @RequestMapping("register/")
 public class RegisterController {
-	
-	@Autowired
-	private StaffService staffService;
 	
 	private static final String regex = "^(.+)@(.+)$";
 	

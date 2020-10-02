@@ -148,8 +148,12 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                        <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
+                        <label for="phone-number">Phone number</label>
+                        <input type="text" class="form-control" id="phone_number" placeholder="Phone number"
+                            required="">
+                        <div class="invalid-feedback">
+                            Please enter your phone number.
+                        </div>
                     </div>
 
                     <div class="row">
@@ -182,7 +186,10 @@
                         </div>
                     </div>
                     <hr class="mb-4">
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                    <form method="POST" action="">
+                        <button id="checkout-button" class="btn btn-primary btn-lg btn-block" type="button">Check
+                            out</button>
+                    </form>
                 </form>
             </div>
         </div>

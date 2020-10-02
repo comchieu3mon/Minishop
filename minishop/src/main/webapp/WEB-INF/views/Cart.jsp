@@ -170,8 +170,9 @@
                                 </li>
                             </ul>
 
-                            <button type="button" class="btn btn-primary btn-block">go to checkout</button>
-
+                            <form action="../checkout/">
+                                <button type="submit" class="btn btn-primary btn-block">go to checkout</button>
+                            </form>
                         </div>
                     </div>
 

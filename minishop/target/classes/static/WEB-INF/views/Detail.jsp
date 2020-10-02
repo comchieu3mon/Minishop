@@ -17,7 +17,7 @@
 	<header>
 		<div class="header-top">
 			<div class="container flex-box">
-				<a class="logo-brand" href="../"> <img src='<c:url value="/resources/Images/site-logo2.png"/>'
+				<a class="logo-brand" href="./"> <img src='<c:url value="/resources/Images/site-logo2.png"/>'
 						width="150px" height="55px" />
 				</a>
 				<form class="form-inline">
@@ -30,18 +30,15 @@
 							<p>${ username }</p>
 						</c:when>
 						<c:otherwise>
-							<a href="../login/">Login</a>
+							<a href="login/">Login</a>
 							<p>Or</p>
-							<a href="../register/">Register</a>
-							<div style="position: relative;">
-								<i class="fas fa-shopping-cart" style="padding-top: 20px; padding-left: 10px"></i>
-								<c:if test="${ cartsSize == 0 || cartsSize == null}">
-									<p id="cart-icon">${ cartsSize }</p>
-								</c:if>
+							<a href="register/">Register</a>
+							<a style="position: relative;" href="cart/">
+								<i class="fas fa-shopping-cart"></i>
 								<c:if test="${ cartsSize > 0 }">
 									<p class="cart-icon">${ cartsSize }</p>
 								</c:if>
-							</div>
+							</a>
 						</c:otherwise>
 					</c:choose>
 				</div>
@@ -59,7 +56,7 @@
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Category</a>
 								<div class="dropdown-menu">
 									<c:forEach items="${ listCategory }" var="category">
-										<a class="dropdown-item" href="../category/${ category.getCategory_name() }">${
+										<a class="dropdown-item" href="./category/${ category.getCategory_name() }">${
 											category.getCategory_name() }</a>
 									</c:forEach>
 								</div>

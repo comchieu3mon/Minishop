@@ -192,4 +192,25 @@ $(document).ready(function () {
     });
     $("#temporary-amount").text("$" + total);
   }
+
+  $("#checkout-button").click(function () {
+    let firstName = $("#firstName").val();
+    let lastName = $("#lastName").val();
+    let address = $("#address").val();
+    let phone_number = $("#phone_number").val();
+
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:8080/Hibernate/api/checkout/",
+      data: {
+        firstName: firstName,
+        lastName: lastName,
+        address: address,
+        phone_number: phone_number,
+      },
+      success: function (value) {
+        alert("success");
+      },
+    });
+  });
 });

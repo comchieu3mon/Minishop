@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -137,5 +139,15 @@ public class ApiController {
 			}
 		}
 		return pos;
+	}
+	
+	@PostMapping("checkout/")
+	@ResponseBody
+	public void checkout(HttpSession httpSession , @RequestParam(name = "firstName") String firstName, @RequestParam(name = "lastName") String lastName, @RequestParam(name = "address") String address, @RequestParam(name = "phone_number") String phone_number) {
+		System.out.println(firstName);
+		System.out.println(lastName);
+		System.out.println(address);
+		System.out.println(phone_number);
+
 	}
 }

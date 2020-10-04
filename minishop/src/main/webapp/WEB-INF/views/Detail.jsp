@@ -35,8 +35,8 @@
 							<a href="../register/">Register</a>
 							<a style="position: relative;" href="../cart/">
 								<i class="fas fa-shopping-cart"></i>
-								<c:if test="${ cartsSize > 0 }">
-									<p id="cart-icon" class="cart-icon">${ cartsSize }</p>
+								<c:if test="${ cartsSize != 0 }">
+									<p class="cart-icon">${ cartsSize }</p>
 								</c:if>
 							</a>
 						</c:otherwise>

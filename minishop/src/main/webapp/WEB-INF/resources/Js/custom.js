@@ -212,7 +212,11 @@ $(document).ready(function () {
         address: address,
         phone_number: phone_number,
       },
-      success: function () {},
+      success: function () {
+        $("#noti")
+          .css({ opacity: 1.0, visibility: "visible" })
+          .animate({ opacity: 0 }, 2500);
+      },
     });
   });
 });

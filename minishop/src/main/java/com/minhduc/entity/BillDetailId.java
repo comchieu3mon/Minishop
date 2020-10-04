@@ -6,10 +6,7 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class BillDetailId implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	int bill_id;
 	int product_detail_id;

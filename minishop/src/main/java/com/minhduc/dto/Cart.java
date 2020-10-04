@@ -10,13 +10,14 @@ public class Cart {
 	private String size_name;
 	private int quantity;
 	private String product_image_url;
+	private int product_detail_id;
 	
 	public Cart() {
 		
 	}
 
 	public Cart(int product_id, String product_name, int product_price, int color_id, String color_name, int size_id,
-			String size_name, int quantity, String product_image_url) {
+			String size_name, int quantity, String product_image_url, int product_detail_id) {
 		super();
 		this.product_id = product_id;
 		this.product_name = product_name;
@@ -27,6 +28,7 @@ public class Cart {
 		this.size_name = size_name;
 		this.quantity = quantity;
 		this.product_image_url = product_image_url;
+		this.product_detail_id = product_detail_id;
 	}
 
 	public int getProduct_id() {
@@ -101,10 +103,19 @@ public class Cart {
 		this.product_image_url = product_image_url;
 	}
 
+	public int getProduct_detail_id() {
+		return product_detail_id;
+	}
+
+	public void setProduct_detail_id(int product_detail_id) {
+		this.product_detail_id = product_detail_id;
+	}
+
 	@Override
 	public String toString() {
 		return "Cart [product_id=" + product_id + ", product_name=" + product_name + ", product_price=" + product_price
 				+ ", color_id=" + color_id + ", color_name=" + color_name + ", size_id=" + size_id + ", size_name="
-				+ size_name + ", quantity=" + quantity + ", product_image_url=" + product_image_url + "]";
+				+ size_name + ", quantity=" + quantity + ", product_image_url=" + product_image_url
+				+ ", product_detail_id=" + product_detail_id + "]";
 	}
 }

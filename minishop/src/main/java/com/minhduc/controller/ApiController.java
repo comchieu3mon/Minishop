@@ -1,6 +1,7 @@
 package com.minhduc.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +17,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.minhduc.dto.Cart;
+import com.minhduc.entity.Bill;
+import com.minhduc.entity.BillDetail;
+import com.minhduc.entity.BillDetailId;
+import com.minhduc.service.BillDetailService;
+import com.minhduc.service.BillService;
 import com.minhduc.service.StaffService;
 
 @Controller
@@ -28,6 +33,12 @@ public class ApiController {
 
 	@Autowired
 	StaffService staffService;
+	
+	@Autowired
+	BillService billService;
+	
+	@Autowired
+	BillDetailService billDetailService;
 	
 	@GetMapping("checkLogin/")
 	@ResponseBody
@@ -56,15 +67,15 @@ public class ApiController {
 	@GetMapping("/addToCart/")
 	@SuppressWarnings("unchecked")
 	@ResponseBody
-	public void addToCart(@RequestParam(name = "product_id") int product_id, @RequestParam(name = "product_name") String product_name, @RequestParam(name = "size_id") int size_id, @RequestParam(name = "size_name") String size_name, @RequestParam(name = "color_id") int color_id, @RequestParam(name = "color_name") String color_name, @RequestParam(name = "quantity") int quantity, @RequestParam(name = "product_price") int product_price, @RequestParam(name = "product_image_url") String product_image_url, HttpSession httpSession) {
+	public void addToCart(@RequestParam(name = "product_id") int product_id, @RequestParam(name = "product_name") String product_name, @RequestParam(name = "size_id") int size_id, @RequestParam(name = "size_name") String size_name, @RequestParam(name = "color_id") int color_id, @RequestParam(name = "color_name") String color_name, @RequestParam(name = "quantity") int quantity, @RequestParam(name = "product_price") int product_price, @RequestParam(name = "product_image_url") String product_image_url, @RequestParam(name = "product_detail_id") int product_detail_id, HttpSession httpSession) {
 		if (httpSession.getAttribute("carts") == null) {
-			Cart cart = new Cart(product_id, product_name, product_price, color_id, color_name, size_id, size_name, quantity, product_image_url);
+			Cart cart = new Cart(product_id, product_name, product_price, color_id, color_name, size_id, size_name, quantity, product_image_url, product_detail_id);
 			carts.add(cart);
 			httpSession.setAttribute("carts", carts);
 		} else {
 			boolean checkProductExistInCart = checkProductExistInCart(httpSession, product_id, size_id, color_id);
 			if (checkProductExistInCart == false) {
-				Cart cart = new Cart(product_id, product_name, product_price, color_id, color_name, size_id, size_name, quantity, product_image_url);
+				Cart cart = new Cart(product_id, product_name, product_price, color_id, color_name, size_id, size_name, quantity, product_image_url, product_detail_id);
 				List<Cart> cartList = (List<Cart>) httpSession.getAttribute("carts");
 				cartList.add(cart);
 				httpSession.setAttribute("carts", cartList);
@@ -142,12 +153,19 @@ public class ApiController {
 	}
 	
 	@PostMapping("checkout/")
+	@SuppressWarnings("unchecked")
 	@ResponseBody
 	public void checkout(HttpSession httpSession , @RequestParam(name = "firstName") String firstName, @RequestParam(name = "lastName") String lastName, @RequestParam(name = "address") String address, @RequestParam(name = "phone_number") String phone_number) {
-		System.out.println(firstName);
-		System.out.println(lastName);
-		System.out.println(address);
-		System.out.println(phone_number);
-
+		List<Cart> listCart = new ArrayList<Cart>();
+		if (httpSession.getAttribute("carts") != null) {
+			listCart = (List<Cart>) httpSession.getAttribute("carts");
+			Bill bill = new Bill(firstName, phone_number, address, false, new Date().toString(), "COD", "TEST");
+			int billId = billService.addBill(bill);
+			for (Cart cart : listCart) {
+				BillDetailId billDetailId = new BillDetailId(billId, cart.getProduct_detail_id());
+				BillDetail billDetail = new BillDetail(billDetailId, cart.getQuantity(), String.valueOf(cart.getProduct_price()));
+				billDetailService.addBillDetail(billDetail);
+			}
+		}
 	}
 }

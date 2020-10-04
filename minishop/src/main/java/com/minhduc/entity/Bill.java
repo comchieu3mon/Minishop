@@ -46,6 +46,19 @@ public class Bill {
 		this.type_of_delivery = type_of_delivery;
 		this.note = note;
 	}
+	
+	public Bill(String customer_name, String customer_phone, String customer_address, Boolean status,
+			String date_create, String type_of_delivery, String note, Set<BillDetail> billDetails) {
+		super();
+		this.customer_name = customer_name;
+		this.customer_phone = customer_phone;
+		this.customer_address = customer_address;
+		this.status = status;
+		this.date_create = date_create;
+		this.type_of_delivery = type_of_delivery;
+		this.note = note;
+		this.billDetails = billDetails;
+	}
 
 	public int getBill_id() {
 		return bill_id;

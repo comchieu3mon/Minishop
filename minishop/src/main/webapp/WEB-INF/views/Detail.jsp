@@ -17,7 +17,7 @@
 	<header>
 		<div class="header-top">
 			<div class="container flex-box">
-				<a class="logo-brand" href="./"> <img src='<c:url value="/resources/Images/site-logo2.png"/>'
+				<a class="logo-brand" href="../"> <img src='<c:url value="/resources/Images/site-logo2.png"/>'
 						width="150px" height="55px" />
 				</a>
 				<form class="form-inline">
@@ -36,7 +36,7 @@
 							<a style="position: relative;" href="../cart/">
 								<i class="fas fa-shopping-cart"></i>
 								<c:if test="${ cartsSize > 0 }">
-									<p class="cart-icon">${ cartsSize }</p>
+									<p id="cart-icon" class="cart-icon">${ cartsSize }</p>
 								</c:if>
 							</a>
 						</c:otherwise>
@@ -108,6 +108,8 @@
 								<c:forEach items="${ product.getProductDetails() }" begin="0"
 									end="${ product.getProductDetails().size() }" var="productDetail">
 									<div class="row">
+										<input class="product-detail-id" type="hidden"
+											data-product-detail-id="${ productDetail.getProduct_detail_id() }">
 										<div class="col-lg-3 text-center size"
 											data-size-id="${ productDetail.getSize().getSize_id() }">
 											<p>${ productDetail.getSize().getSize_name() }</p>

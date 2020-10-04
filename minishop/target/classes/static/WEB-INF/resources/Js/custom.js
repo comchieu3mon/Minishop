@@ -48,6 +48,12 @@ $(document).ready(function () {
     let product_image_url = $(".pro-img-details")
       .attr("data-product-image-url")
       .trim();
+    let product_detail_id = $(this)
+      .parent()
+      .parent()
+      .find(".product-detail-id")
+      .attr("data-product-detail-id")
+      .trim();
 
     $.ajax({
       type: "GET",
@@ -62,6 +68,7 @@ $(document).ready(function () {
         size_name: size_name,
         quantity: quantity,
         product_image_url: product_image_url,
+        product_detail_id: product_detail_id,
       },
     }).done(function () {
       $.ajax({
@@ -164,9 +171,6 @@ $(document).ready(function () {
       .parent()
       .find(".product-size")
       .attr("data-size-id");
-    console.log(product_id);
-    console.log(size_id);
-    console.log(color_id);
 
     $.ajax({
       type: "GET",
@@ -208,9 +212,7 @@ $(document).ready(function () {
         address: address,
         phone_number: phone_number,
       },
-      success: function (value) {
-        alert("success");
-      },
+      success: function () {},
     });
   });
 });

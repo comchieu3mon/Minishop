@@ -105,7 +105,6 @@ public class Product {
 	}
 
 	public Set<ProductDetail> getProductDetails() {
-		System.out.println(productDetails.size());
 		return productDetails;
 	}
 

@@ -230,7 +230,7 @@ $(document).ready(function () {
         product_id: product_id,
       },
       success: function () {
-        self.closest("tr").hide("slow", function () {
+        self.closest("tr").hide(1500, function () {
           self.closest("tr").remove();
         });
       },

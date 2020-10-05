@@ -5,7 +5,7 @@ $(document).ready(function () {
   $("#btn-login").click(function () {
     $.ajax({
       type: "GET",
-      url: "http://localhost:8080/Hibernate/api/checkLogin/",
+      url: "http://localhost:8080/minishop/api/checkLogin/",
       data: {
         username: $("#username").val(),
         password: $("#password").val(),
@@ -57,7 +57,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "GET",
-      url: "http://localhost:8080/Hibernate/api/addToCart/",
+      url: "http://localhost:8080/minishop/api/addToCart/",
       data: {
         product_id: product_id,
         product_name: product_name,
@@ -73,7 +73,7 @@ $(document).ready(function () {
     }).done(function () {
       $.ajax({
         type: "GET",
-        url: "http://localhost:8080/Hibernate/api/getCartQuantity/",
+        url: "http://localhost:8080/minishop/api/getCartQuantity/",
         success: function (value) {
           $("#cart-icon").addClass("cart-icon");
           $(".cart-icon").html("<span>" + value + "</span>");
@@ -131,7 +131,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "GET",
-      url: "http://localhost:8080/Hibernate/api/updateCart/",
+      url: "http://localhost:8080/minishop/api/updateCart/",
       data: {
         product_id: product_id,
         color_id: color_id,
@@ -174,7 +174,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "GET",
-      url: "http://localhost:8080/Hibernate/api/removeItem/",
+      url: "http://localhost:8080/minishop/api/removeItem/",
       data: {
         product_id: product_id,
         color_id: color_id,
@@ -205,7 +205,7 @@ $(document).ready(function () {
 
     $.ajax({
       type: "POST",
-      url: "http://localhost:8080/Hibernate/api/checkout/",
+      url: "http://localhost:8080/minishop/api/checkout/",
       data: {
         firstName: firstName,
         lastName: lastName,

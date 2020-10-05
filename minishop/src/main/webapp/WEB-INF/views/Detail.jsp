@@ -90,10 +90,10 @@
 						</p>
 						<div class="product_meta">
 							<span class="posted_in"> <strong>Categories:</strong> <a rel="tag" href="#">${
-									product.getCategory().getCategory_name() }</a>
+									product.getCategory().getCategory_name() }</a></span>
 						</div>
 						<div>
-							<span class="posted_in"> <strong>Information:</strong>
+							<span class="posted_in"> <strong>Information:</strong></span>
 								<div class=row>
 									<div class="col-lg-3 text-center">
 										<p style="font-weight: bold;">Size</p>

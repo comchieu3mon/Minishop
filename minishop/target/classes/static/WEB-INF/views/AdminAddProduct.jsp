@@ -153,12 +153,19 @@
 									Please enter your shipping address.
 								</div>
 							</div>
+							<div class="form-group">
+								<label for="exampleFormControlFile1">Product Image</label>
+								<input type="file" class="form-control-file" id="exampleFormControlFile1">
+							</div>
 							<div class="row">
 								<div class="col-md-5 mb-3 pl-0">
 									<label for="category">Category</label>
 									<select class="custom-select d-block w-100" id="category">
 										<option value="">Choose...</option>
-										<option>United States</option>
+										<c:forEach items="${ categoryList }" var="category">
+											<option value="${ category.getCategory_name() }">${
+												category.getCategory_name() }</option>
+										</c:forEach>
 									</select>
 									<div class="invalid-feedback">
 										Please select a valid category.
@@ -168,7 +175,10 @@
 									<label for="color">Color</label>
 									<select class="custom-select d-block w-100" id="color">
 										<option value="">Choose...</option>
-										<option>California</option>
+										<c:forEach items="${ colorList }" var="color">
+											<option value="${ color.getColor_name() }">${ color.getColor_name() }
+											</option>
+										</c:forEach>
 									</select>
 									<div class="invalid-feedback">
 										Please provide a valid color.
@@ -178,7 +188,9 @@
 									<label for="size">Size</label>
 									<select class="custom-select d-block w-100" id="size">
 										<option value="">Choose...</option>
-										<option>California</option>
+										<c:forEach items="${ sizeList }" var="size">
+											<option value="${ size.getSize_name() }">${ size.getSize_name() }</option>
+										</c:forEach>
 									</select>
 									<div class="invalid-feedback">
 										Please provide a valid size.
@@ -187,8 +199,8 @@
 							</div>
 							<hr class="mb-4">
 							<button id="checkout-button" class="w-50 m-auto btn btn-primary btn-lg btn-block"
-								type="button">Check
-								out</button>
+								type="button">Add Product
+							</button>
 						</form>
 					</div>
 				</div>

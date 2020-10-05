@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.minhduc.entity.Category;
 import com.minhduc.entity.Product;
 import com.minhduc.service.CategoryService;
+import com.minhduc.service.ColorService;
 import com.minhduc.service.ProductService;
+import com.minhduc.service.SizeService;
 
 @RequestMapping("admin/")
 @Controller
@@ -22,6 +24,12 @@ public class AdminController {
 	
 	@Autowired
 	private ProductService productService;
+	
+	@Autowired
+	private ColorService colorService;
+	
+	@Autowired
+	private SizeService sizeService;
 	
 	@GetMapping
 	public String getAdminPage(ModelMap modelMap) {
@@ -41,7 +49,10 @@ public class AdminController {
 	}
 	
 	@GetMapping("/add/product")
-	public String getAdminAddProduct() {
+	public String getAdminAddProduct(ModelMap modelMap) {
+		modelMap.addAttribute("colorList", colorService.getAllColor());
+		modelMap.addAttribute("sizeList", sizeService.getAllSize());
+		modelMap.addAttribute("categoryList", categoryService.getAllCategory());
 		return "AdminAddProduct";
 	}
 }

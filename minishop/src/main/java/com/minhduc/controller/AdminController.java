@@ -39,4 +39,9 @@ public class AdminController {
 		modelMap.addAttribute("products", products);
 		return "AdminProduct";
 	}
+	
+	@GetMapping("/add/product")
+	public String getAdminAddProduct() {
+		return "AdminAddProduct";
+	}
 }

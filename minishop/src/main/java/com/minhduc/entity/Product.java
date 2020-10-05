@@ -23,7 +23,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int product_id;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "category_id")
 	Category category;
 
@@ -32,15 +32,9 @@ public class Product {
 	String product_description;
 	String product_image;
 
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "product_id")
 	Set<ProductDetail> productDetails;
-
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "promotion_detail", joinColumns = {
-			@JoinColumn(name = "product_id", referencedColumnName = "product_id") }, inverseJoinColumns = {
-					@JoinColumn(name = "promotion_id", referencedColumnName = "promotion_id") })
-	Set<Promotion> promotions;
 
 	public Product() {
 
@@ -112,19 +106,12 @@ public class Product {
 		this.productDetails = productDetails;
 	}
 
-	public Set<Promotion> getPromotions() {
-		return promotions;
-	}
-
-	public void setPromotions(Set<Promotion> promotions) {
-		this.promotions = promotions;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "Product [product_id=" + product_id + ", category=" + category + ", product_name=" + product_name
 				+ ", product_price=" + product_price + ", product_description=" + product_description
-				+ ", product_image=" + product_image + ", productDetails=" + productDetails + ", promotions="
-				+ promotions + "]";
+				+ ", product_image=" + product_image + ", productDetails=" + productDetails +  "]";
 	}
 }

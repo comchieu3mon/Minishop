@@ -14,6 +14,7 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int category_id;
 	private String category_name;
+	private int totalProduct;
 	
 	public Category() {
 		
@@ -38,6 +39,14 @@ public class Category {
 
 	public void setCategory_name(String category_name) {
 		this.category_name = category_name;
+	}
+
+	public int getTotalProduct() {
+		return totalProduct;
+	}
+
+	public void setTotalProduct(int totalProduct) {
+		this.totalProduct = totalProduct;
 	}
 
 	@Override

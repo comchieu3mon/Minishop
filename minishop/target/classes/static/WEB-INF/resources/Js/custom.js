@@ -219,4 +219,21 @@ $(document).ready(function () {
       },
     });
   });
+
+  $(".delete-button").on("click", function () {
+    let self = $(this);
+    let product_id = $(this).closest("tr").attr("data-product-id");
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/minishop/api/deleteProduct/",
+      data: {
+        product_id: product_id,
+      },
+      success: function () {
+        self.closest("tr").hide("slow", function () {
+          self.closest("tr").remove();
+        });
+      },
+    });
+  });
 });

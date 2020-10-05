@@ -17,7 +17,7 @@ public class ProductDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int product_detail_id;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="product_id")
 	Product product;
 	

@@ -11,11 +11,11 @@ import com.minhduc.service.ProductService;
 
 @Service
 
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductRepository productRepository;
-	
+
 	@Override
 	public List<Product> getAllProducts() {
 		return productRepository.getAllProducts();
@@ -29,5 +29,10 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<Product> getProductByCategoryName(String category_name) {
 		return productRepository.getProductsByCategoryName(category_name);
+	}
+
+	@Override
+	public void deleteProduct(int product_id) {
+		productRepository.deleteProduct(product_id);
 	}
 }

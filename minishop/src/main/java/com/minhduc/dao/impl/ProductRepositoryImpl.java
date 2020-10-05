@@ -9,6 +9,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -55,5 +56,12 @@ public class ProductRepositoryImpl implements ProductRepository {
 		return getAllProducts().stream()
 				.filter(product -> product.getCategory().getCategory_name().equals(category_name))
 				.collect(Collectors.toList());
+	}
+
+	@Override
+	@Transactional
+	public void deleteProduct(int product_id) {
+		Session session = mySessionFactory.getCurrentSession();
+		session.delete(getProductById(product_id));
 	}
 }

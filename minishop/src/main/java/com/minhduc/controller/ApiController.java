@@ -22,6 +22,7 @@ import com.minhduc.entity.BillDetail;
 import com.minhduc.entity.BillDetailId;
 import com.minhduc.service.BillDetailService;
 import com.minhduc.service.BillService;
+import com.minhduc.service.ProductService;
 import com.minhduc.service.StaffService;
 
 @Controller
@@ -39,6 +40,9 @@ public class ApiController {
 	
 	@Autowired
 	BillDetailService billDetailService;
+	
+	@Autowired
+	ProductService productService;
 	
 	@GetMapping("checkLogin/")
 	@ResponseBody
@@ -167,5 +171,11 @@ public class ApiController {
 				billDetailService.addBillDetail(billDetail);
 			}
 		}
+	}
+	
+	@GetMapping("deleteProduct/")
+	@ResponseBody
+	public void deleteProduct(@RequestParam(name = "product_id") int product_id) {
+		productService.deleteProduct(product_id);
 	}
 }

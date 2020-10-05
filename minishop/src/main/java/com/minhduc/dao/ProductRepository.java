@@ -11,4 +11,6 @@ public interface ProductRepository {
 	Product getProductById(int product_id);
 
 	List<Product> getProductsByCategoryName(String category_name);
+	
+	void deleteProduct(int product_id);
 }

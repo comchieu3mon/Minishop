@@ -252,4 +252,12 @@ $(document).ready(function () {
       url: "http://localhost:8080/minishop/api/upload/",
     });
   });
+
+  $("#add-detail-button").on("click", function () {
+    var cloneContent = $("#product-detail-content")
+      .clone()
+      .removeAttr("style")
+      .removeAttr("id");
+    $("#container-product-detail").append(cloneContent);
+  });
 });

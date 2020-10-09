@@ -197,4 +197,10 @@ public class ApiController {
 		File file_save = new File(file_save_path + multipartFile.getOriginalFilename());
 		multipartFile.transferTo(file_save);
 	}
+	
+	@PostMapping("add/")
+	@ResponseBody
+	public void addProduct(@RequestParam(name = "data") String data) {
+		System.out.println(data);
+	}
 }

@@ -48,7 +48,7 @@ public class AdminController {
 		return "AdminProduct";
 	}
 	
-	@GetMapping("/add/product")
+	@GetMapping("/add/product/")
 	public String getAdminAddProduct(ModelMap modelMap) {
 		modelMap.addAttribute("colorList", colorService.getAllColor());
 		modelMap.addAttribute("sizeList", sizeService.getAllSize());

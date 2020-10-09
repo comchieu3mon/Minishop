@@ -285,6 +285,15 @@ $(document).ready(function () {
       }
     });
     json.product_details = product_detail_array;
-    console.log(JSON.stringify(json));
+    let data = JSON.stringify(json);
+    console.log(data);
+
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:8080/minishop/api/add/",
+      data: {
+        data: data,
+      },
+    });
   });
 });

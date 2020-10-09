@@ -160,7 +160,7 @@
 										id="category" name="product_category">
 										<option value="">Choose...</option>
 										<c:forEach items="${ categoryList }" var="category">
-											<option value="${ category.getCategory_name() }">${
+											<option value="${ category.getCategory_id() }">${
 												category.getCategory_name() }</option>
 										</c:forEach>
 									</select>
@@ -172,7 +172,7 @@
 										id="color" name="product_color">
 										<option value="">Choose...</option>
 										<c:forEach items="${ colorList }" var="color">
-											<option value="${ color.getColor_name() }">${ color.getColor_name() }
+											<option value="${ color.getColor_id() }">${ color.getColor_name() }
 											</option>
 										</c:forEach>
 									</select>
@@ -184,7 +184,7 @@
 										name="product_size">
 										<option value="">Choose...</option>
 										<c:forEach items="${ sizeList }" var="size">
-											<option value="${ size.getSize_name() }">${ size.getSize_name() }
+											<option value="${ size.getSize_id() }">${ size.getSize_name() }
 											</option>
 										</c:forEach>
 									</select>

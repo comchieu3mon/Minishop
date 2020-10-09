@@ -273,10 +273,16 @@ $(document).ready(function () {
       let product_color = $(this).find("#color").val();
       let product_category = $(this).find("#category").val();
       let product_size = $(this).find("#size").val();
-      product_detail.product_color = product_color;
-      product_detail.product_size = product_size;
-      product_detail.product_category = product_category;
-      product_detail_array.push(product_detail);
+      if (
+        product_color != "" &&
+        product_category != "" &&
+        product_category != ""
+      ) {
+        product_detail.product_color = product_color;
+        product_detail.product_size = product_size;
+        product_detail.product_category = product_category;
+        product_detail_array.push(product_detail);
+      }
     });
     json.product_details = product_detail_array;
     console.log(JSON.stringify(json));

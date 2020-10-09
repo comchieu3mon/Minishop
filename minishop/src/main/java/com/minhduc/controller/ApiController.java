@@ -1,9 +1,13 @@
 package com.minhduc.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.minhduc.dto.Cart;
 import com.minhduc.entity.Bill;
@@ -177,5 +183,18 @@ public class ApiController {
 	@ResponseBody
 	public void deleteProduct(@RequestParam(name = "product_id") int product_id) {
 		productService.deleteProduct(product_id);
+	}
+	
+	@Autowired
+	private ServletContext context;
+	
+	@PostMapping("upload/")
+	@ResponseBody
+	public void uploadFile(MultipartHttpServletRequest httpServletRequest) throws IllegalStateException, IOException {
+		String file_save_path = context.getRealPath("/WEB-INF/resources/Images/");
+		Iterator<String> fileNames = httpServletRequest.getFileNames();
+		MultipartFile multipartFile = httpServletRequest.getFile(fileNames.next());
+		File file_save = new File(file_save_path + multipartFile.getOriginalFilename());
+		multipartFile.transferTo(file_save);
 	}
 }

@@ -41,17 +41,17 @@
 					<li><a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard
 						</a></li>
 
-					<li class="menu-item-has-children active dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i
-								class="menu-icon fa fa-table"></i>Tables
-						</a>
+					<li class="menu-item-has-children active dropdown"><a href="#"
+						class="dropdown-toggle" data-toggle="dropdown"
+						aria-haspopup="true" aria-expanded="false"> <i
+							class="menu-icon fa fa-table"></i>Tables
+					</a>
 						<ul class="sub-menu children dropdown-menu">
 							<li><i class="fa fa-table"></i><a href="./products/">Products
-								</a></li>
+							</a></li>
 							<li><i class="fa fa-table"></i><a href="tables-data.html">Data
 									Table</a></li>
-						</ul>
-					</li>
+						</ul></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -131,16 +131,16 @@
 						<form class="needs-validation" method="POST" action="./">
 							<div class="row">
 								<label for="productName">Product Name</label>
-								<input type="text" class="form-control" id="productName" placeholder="Product's Name"
-									value="" required>
+								<input type="text" class="form-control" id="productName" placeholder="Product Name"
+									value="" required name="product_name">
 								<div class="invalid-feedback">
 									Valid first name is required.
 								</div>
 							</div>
 							<div class="row mb-3">
 								<label for="productPrice">Product Prices</label>
-								<input type="text" class="form-control" id="productName" placeholder="Product's Price"
-									value="" required>
+								<input type="text" class="form-control" id="productPrice" placeholder="Product Price"
+									value="" required name="product_price">
 								<div class="invalid-feedback">
 									Valid last name is required.
 								</div>
@@ -148,19 +148,17 @@
 							<div class="mb-3">
 								<label for="productDescription">Description</label>
 								<input type="text" class="form-control" id="productDescription"
-									placeholder="Product's Description" required>
-								<div class="invalid-feedback">
-									Please enter your shipping address.
-								</div>
+									placeholder="Product's Description" required name="product_description">
+								
 							</div>
 							<div class="form-group">
 								<label for="exampleFormControlFile1">Product Image</label>
-								<input type="file" class="form-control-file" id="exampleFormControlFile1">
+								<input type="file" class="form-control-file" id="exampleFormControlFile1" name="product_image">
 							</div>
 							<div class="row">
 								<div class="col-md-5 mb-3 pl-0">
 									<label for="category">Category</label>
-									<select class="custom-select d-block w-100" id="category">
+									<select class="custom-select d-block w-100" id="category" name="product_category">
 										<option value="">Choose...</option>
 										<c:forEach items="${ categoryList }" var="category">
 											<option value="${ category.getCategory_name() }">${
@@ -173,7 +171,7 @@
 								</div>
 								<div class="col-md-4 mb-3">
 									<label for="color">Color</label>
-									<select class="custom-select d-block w-100" id="color">
+									<select class="custom-select d-block w-100" id="color" name="product_color">
 										<option value="">Choose...</option>
 										<c:forEach items="${ colorList }" var="color">
 											<option value="${ color.getColor_name() }">${ color.getColor_name() }
@@ -186,7 +184,7 @@
 								</div>
 								<div class="col-md-3 mb-3">
 									<label for="size">Size</label>
-									<select class="custom-select d-block w-100" id="size">
+									<select class="custom-select d-block w-100" id="size" name="product_size">
 										<option value="">Choose...</option>
 										<c:forEach items="${ sizeList }" var="size">
 											<option value="${ size.getSize_name() }">${ size.getSize_name() }</option>

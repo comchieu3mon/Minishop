@@ -236,4 +236,20 @@ $(document).ready(function () {
       },
     });
   });
+
+  var files = [];
+  $("#exampleFormControlFile1").change(function (event) {
+    files = event.target.files;
+    let form = new FormData();
+    form.append("file", files[0]);
+
+    $.ajax({
+      type: "POST",
+      data: form,
+      contentType: false,
+      enctype: "multipart/form-data",
+      processData: false,
+      url: "http://localhost:8080/minishop/api/upload/",
+    });
+  });
 });

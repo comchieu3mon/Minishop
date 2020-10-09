@@ -260,4 +260,25 @@ $(document).ready(function () {
       .removeAttr("id");
     $("#container-product-detail").append(cloneContent);
   });
+
+  $("#add-product-button").on("click", function (event) {
+    event.preventDefault();
+    let json = {};
+    $.each($("#add-product-form").serializeArray(), function (index, element) {
+      json[element.name] = element.value;
+    });
+    let product_detail_array = [];
+    $(".product-detail-content").each(function () {
+      let product_detail = {};
+      let product_color = $(this).find("#color").val();
+      let product_category = $(this).find("#category").val();
+      let product_size = $(this).find("#size").val();
+      product_detail.product_color = product_color;
+      product_detail.product_size = product_size;
+      product_detail.product_category = product_category;
+      product_detail_array.push(product_detail);
+    });
+    json.product_details = product_detail_array;
+    console.log(JSON.stringify(json));
+  });
 });

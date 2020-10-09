@@ -139,7 +139,7 @@
 
 					<div class="col-md-12">
 						<!-- code here -->
-						<form class="needs-validation" method="POST" action="./">
+						<form class="needs-validation" method="POST" id="add-product-form">
 							<div class="row">
 								<label for="productName">Product Name</label> <input type="text"
 									class="form-control" id="productName"
@@ -170,7 +170,7 @@
 							</div>
 							<div class="container ml-0 mr-0 p-0"
 								id="container-product-detail">
-								<div class="row">
+								<div class="row product-detail-content">
 									<div class="col-md-5 mb-3 pl-0">
 										<label for="category">Category</label> <select
 											class="custom-select d-block w-100" id="category"
@@ -211,7 +211,7 @@
 									</div>
 								</div>
 							</div>
-							<div id="product-detail-content" class="row"
+							<div id="product-detail-content" class="row product-detail-content"
 								style="display: none;">
 								<div class="col-md-5 mb-3 pl-0">
 									<label for="category">Category</label> <select
@@ -256,7 +256,7 @@
 								style="margin-left: 926px; width: 200px;"
 								class="btn btn-primary btn-lg btn-block">Add Detail</button>
 							<hr class="mb-4">
-							<button id="checkout-button"
+							<button id="add-product-button"
 								class="w-50 m-auto btn btn-primary btn-lg btn-block"
 								type="button">Add Product</button>
 						</form>

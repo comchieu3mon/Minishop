@@ -4,8 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -22,10 +24,18 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.minhduc.dto.Cart;
 import com.minhduc.entity.Bill;
 import com.minhduc.entity.BillDetail;
 import com.minhduc.entity.BillDetailId;
+import com.minhduc.entity.Category;
+import com.minhduc.entity.Product;
+import com.minhduc.entity.ProductDetail;
 import com.minhduc.service.BillDetailService;
 import com.minhduc.service.BillService;
 import com.minhduc.service.ProductService;
@@ -200,7 +210,25 @@ public class ApiController {
 	
 	@PostMapping("add/")
 	@ResponseBody
-	public void addProduct(@RequestParam(name = "data") String data) {
-		System.out.println(data);
+	public void addProduct(@RequestParam(name = "data") String data) throws JsonMappingException, JsonProcessingException {
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode jsonObject = mapper.readTree(data);
+		JsonNode product_image = jsonObject.get("product_image");
+		JsonNode product_name = jsonObject.get("product_name");
+		JsonNode product_price = jsonObject.get("product_price");
+		JsonNode product_description = jsonObject.get("product_description");
+		JsonNode product_details = jsonObject.get("product_details");
+		
+		Product product = new Product();
+		product.setProduct_name(String.valueOf(product_name));
+		product.setProduct_description(String.valueOf(product_description));
+		product.setProduct_price(String.valueOf(product_price));
+		product.setProduct_image(String.valueOf(product_image));
+		
+		Set<ProductDetail> productDetails = new HashSet<ProductDetail>();
+		for (JsonNode jsonNode : product_details) {
+			product.setCategory(new Category(String.valueOf(jsonNode.get("product_category"))));
+		}
+		
 	}
 }

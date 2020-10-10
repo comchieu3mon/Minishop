@@ -129,7 +129,7 @@
 					<div class="col-md-12">
 						<!-- code here -->
 						<form class="needs-validation" method="POST" id="add-product-form">
-							<div class="row">
+							<div class="row mb-3">
 								<label for="productName">Product Name</label> <input type="text" class="form-control"
 									id="productName" placeholder="Product Name" value="" required name="product_name">
 								<div class="invalid-feedback">Valid first name is
@@ -148,26 +148,28 @@
 									required name="product_description">
 
 							</div>
-							<div class="form-group">
-								<label for="exampleFormControlFile1">Product Image</label> <input type="file"
-									class="form-control-file" id="exampleFormControlFile1" name="product_image">
+							<div class="row mb-3">
+								<label for="category">Category</label> <select class="custom-select d-block w-100"
+									id="category" name="product_category">
+									<option value="">Choose...</option>
+									<c:forEach items="${ categoryList }" var="category">
+										<option value="${ category.getCategory_id() }">${
+											category.getCategory_name() }</option>
+									</c:forEach>
+								</select>
+								<div class="invalid-feedback">Please select a valid
+									category.</div>
+
+							</div>
+							<div class="mb-3">
+								<label for="exampleFormControlFile1">Product Image</label>
+								<input type="file" class="form-control-file" id="exampleFormControlFile1"
+									name="product_image">
 							</div>
 						</form>
 						<div class="container ml-0 mr-0 p-0" id="container-product-detail">
-							<div class="row product-detail-content">
-								<div class="col-md-5 mb-3 pl-0">
-									<label for="category">Category</label> <select class="custom-select d-block w-100"
-										id="category" name="product_category">
-										<option value="">Choose...</option>
-										<c:forEach items="${ categoryList }" var="category">
-											<option value="${ category.getCategory_id() }">${
-												category.getCategory_name() }</option>
-										</c:forEach>
-									</select>
-									<div class="invalid-feedback">Please select a valid
-										category.</div>
-								</div>
-								<div class="col-md-4 mb-3">
+							<div class="row product-detail-content pl-0">
+								<div class="col-md-3 mb-3">
 									<label for="color">Color</label> <select class="custom-select d-block w-100"
 										id="color" name="product_color">
 										<option value="">Choose...</option>
@@ -191,6 +193,25 @@
 									<div class="invalid-feedback">Please provide a valid
 										size.</div>
 								</div>
+								<div class="col-md-3 mb-3 pl-0">
+									<label for="quantity">Quantity</label> <select class="custom-select d-block w-100"
+										id="quantity" name="quantity">
+										<option value="">Choose...</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
+									<div class="invalid-feedback">Please select a valid
+										quantity.</div>
+								</div>
+								<div class="col-md-3 mb-3 pl-0">
+									<label for="date">Date Import</label>
+									<input type="date" id="date" name="date" class="custom-select d-block w-100">
+									<div class="invalid-feedback">Please select a valid
+										date.</div>
+								</div>
 							</div>
 						</div>
 
@@ -204,20 +225,8 @@
 			</div>
 		</div>
 
-		<div id="product-detail-content" class="row product-detail-content" style="display: none;">
-			<div class="col-md-5 mb-3 pl-0">
-				<label for="category">Category</label> <select class="custom-select d-block w-100" id="category"
-					name="product_category">
-					<option value="">Choose...</option>
-					<c:forEach items="${ categoryList }" var="category">
-						<option value="${ category.getCategory_name() }">${
-							category.getCategory_name() }</option>
-					</c:forEach>
-				</select>
-				<div class="invalid-feedback">Please select a valid
-					category.</div>
-			</div>
-			<div class="col-md-4 mb-3">
+		<div id="product-detail-content" class="row product-detail-content pl-0" style="display: none;">
+			<div class="col-md-3 mb-3">
 				<label for="color">Color</label> <select class="custom-select d-block w-100" id="color"
 					name="product_color">
 					<option value="">Choose...</option>
@@ -239,6 +248,25 @@
 				</select>
 				<div class="invalid-feedback">Please provide a valid
 					size.</div>
+			</div>
+			<div class="col-md-3 mb-3 pl-0">
+				<label for="quantity">Quantity</label> <select class="custom-select d-block w-100" id="quantity"
+					name="quantity">
+					<option value="">Choose...</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+				<div class="invalid-feedback">Please select a valid
+					quantity.</div>
+			</div>
+			<div class="col-md-3 mb-3 pl-0">
+				<label for="date">Date Import</label>
+				<input type="date" id="date" name="date" class="custom-select d-block w-100">
+				<div class="invalid-feedback">Please select a valid
+					date.</div>
 			</div>
 		</div>
 

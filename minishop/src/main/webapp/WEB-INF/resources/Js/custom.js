@@ -264,9 +264,14 @@ $(document).ready(function () {
   $("#add-product-button").on("click", function (event) {
     event.preventDefault();
     let json = {};
+    let product_image =
+      "/WEB-INF/resources/Images/" +
+      $("#exampleFormControlFile1")[0].files[0]["name"];
+    json["product_image"] = product_image;
     $.each($("#add-product-form").serializeArray(), function (index, element) {
       json[element.name] = element.value;
     });
+
     let product_detail_array = [];
     $(".product-detail-content").each(function () {
       let product_detail = {};
@@ -286,7 +291,6 @@ $(document).ready(function () {
     });
     json.product_details = product_detail_array;
     let data = JSON.stringify(json);
-    console.log(data);
 
     $.ajax({
       type: "POST",

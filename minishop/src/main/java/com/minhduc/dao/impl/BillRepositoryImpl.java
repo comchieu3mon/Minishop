@@ -13,7 +13,6 @@ import com.minhduc.dao.BillRepository;
 import com.minhduc.entity.Bill;
 
 @Repository
-@Scope(proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class BillRepositoryImpl implements BillRepository{
 
 	@Autowired

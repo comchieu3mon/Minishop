@@ -6,6 +6,8 @@ import com.minhduc.entity.Product;
 
 public interface ProductService {
 	
+	void add(Product product);
+	
 	List<Product> getAllProducts();
 	
 	Product getProductById(int product_id);

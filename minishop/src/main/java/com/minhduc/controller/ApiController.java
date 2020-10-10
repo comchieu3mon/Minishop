@@ -24,7 +24,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -34,8 +33,10 @@ import com.minhduc.entity.Bill;
 import com.minhduc.entity.BillDetail;
 import com.minhduc.entity.BillDetailId;
 import com.minhduc.entity.Category;
+import com.minhduc.entity.Color;
 import com.minhduc.entity.Product;
 import com.minhduc.entity.ProductDetail;
+import com.minhduc.entity.Size;
 import com.minhduc.service.BillDetailService;
 import com.minhduc.service.BillService;
 import com.minhduc.service.ProductService;
@@ -213,10 +214,11 @@ public class ApiController {
 	public void addProduct(@RequestParam(name = "data") String data) throws JsonMappingException, JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode jsonObject = mapper.readTree(data);
-		JsonNode product_image = jsonObject.get("product_image");
-		JsonNode product_name = jsonObject.get("product_name");
-		JsonNode product_price = jsonObject.get("product_price");
-		JsonNode product_description = jsonObject.get("product_description");
+		String product_image = jsonObject.get("product_image").asText();
+		String product_name = jsonObject.get("product_name").asText();
+		String product_price = jsonObject.get("product_price").asText();
+		String product_description = jsonObject.get("product_description").asText();
+		String product_category = jsonObject.get("product_category").asText();
 		JsonNode product_details = jsonObject.get("product_details");
 		
 		Product product = new Product();
@@ -224,7 +226,27 @@ public class ApiController {
 		product.setProduct_description(String.valueOf(product_description));
 		product.setProduct_price(String.valueOf(product_price));
 		product.setProduct_image(String.valueOf(product_image));
-		System.out.println(data);
+		Category category = new Category();
+		category.setCategory_id(Integer.parseInt(product_category));
+		product.setCategory(category);
 		
+		Set<ProductDetail> productDetails = new HashSet<ProductDetail>();
+		for (JsonNode jsonNode : product_details) {
+			ProductDetail productDetail = new ProductDetail();
+			Color color = new Color();
+			color.setColor_id(Integer.parseInt(jsonNode.get("product_color").asText()));
+			Size size = new Size();
+			size.setSize_id(Integer.parseInt(jsonNode.get("product_size").asText()));
+			int quantity = Integer.parseInt(jsonNode.get("product_quantity").asText());
+			String date_import = String.valueOf(jsonNode.get("date_import").asText());
+			productDetail.setColor(color);
+			productDetail.setSize(size);
+			productDetail.setQuantity(quantity);
+			productDetail.setDate_import(date_import);
+			productDetails.add(productDetail);
+		}
+		
+		product.setProductDetails(productDetails);
+		productService.add(product);
 	}
 }

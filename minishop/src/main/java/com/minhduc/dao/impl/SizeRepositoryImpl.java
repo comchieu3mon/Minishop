@@ -16,6 +16,7 @@ import com.minhduc.dao.SizeRepository;
 import com.minhduc.entity.Size;
 
 @Repository
+
 public class SizeRepositoryImpl implements SizeRepository{
 
 	@Autowired

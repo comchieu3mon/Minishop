@@ -5,12 +5,15 @@ import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Repository;
 
 import com.minhduc.dao.BillDetailRepository;
 import com.minhduc.entity.BillDetail;
 
 @Repository
+
 public class BillDetailRepositoryImpl implements BillDetailRepository{
 
 	@Autowired

@@ -265,7 +265,7 @@ $(document).ready(function () {
     event.preventDefault();
     let json = {};
     let product_image =
-      "/WEB-INF/resources/Images/" +
+      "/resources/Images/" +
       $("#exampleFormControlFile1")[0].files[0]["name"];
     json["product_image"] = product_image;
     $.each($("#add-product-form").serializeArray(), function (index, element) {

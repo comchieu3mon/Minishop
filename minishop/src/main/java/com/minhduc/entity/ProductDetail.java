@@ -21,11 +21,11 @@ public class ProductDetail {
 	@JoinColumn(name="product_id")
 	Product product;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="size_id")
 	Size size;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="color_id")
 	Color color;
 	

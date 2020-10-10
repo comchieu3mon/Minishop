@@ -6,6 +6,8 @@ import com.minhduc.entity.Product;
 
 public interface ProductRepository {
 
+	void add(Product product);
+	
 	List<Product> getAllProducts();
 
 	Product getProductById(int product_id);

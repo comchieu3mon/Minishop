@@ -34,9 +34,10 @@ public class AdminController {
 	@GetMapping
 	public String getAdminPage(ModelMap modelMap) {
 		List<Category> categoryList = categoryService.getAllCategory();
-		for (Category category : categoryList) {
-			category.setTotalProduct(categoryService.getAllProductByCategoryName(category.getCategory_name()));
-		}
+//		for (Category category : categoryList) {
+//			category.setTotalProduct(categoryService.getAllProductByCategoryName(category.getCategory_name()));
+//		}
+		
 		modelMap.addAttribute("categoryList", categoryList);
 		return "Admin";
 	}

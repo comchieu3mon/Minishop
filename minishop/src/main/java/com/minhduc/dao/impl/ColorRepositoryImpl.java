@@ -16,6 +16,7 @@ import com.minhduc.dao.ColorRepository;
 import com.minhduc.entity.Color;
 
 @Repository
+
 public class ColorRepositoryImpl implements ColorRepository {
 	
 	@Autowired

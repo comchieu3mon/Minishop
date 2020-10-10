@@ -223,6 +223,7 @@ $(document).ready(function () {
   $(".delete-button").on("click", function () {
     let self = $(this);
     let product_id = $(this).closest("tr").attr("data-product-id");
+    alert("click");
     $.ajax({
       type: "GET",
       url: "http://localhost:8080/minishop/api/deleteProduct/",
@@ -265,8 +266,7 @@ $(document).ready(function () {
     event.preventDefault();
     let json = {};
     let product_image =
-      "/resources/Images/" +
-      $("#exampleFormControlFile1")[0].files[0]["name"];
+      "/resources/Images/" + $("#exampleFormControlFile1")[0].files[0]["name"];
     json["product_image"] = product_image;
     $.each($("#add-product-form").serializeArray(), function (index, element) {
       json[element.name] = element.value;

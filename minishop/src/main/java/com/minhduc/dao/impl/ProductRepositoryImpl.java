@@ -68,4 +68,16 @@ public class ProductRepositoryImpl implements ProductRepository {
 		Session session = mySessionFactory.getCurrentSession();
 		session.save(product);
 	}
+
+	@Override
+	@Transactional
+	public List<Product> getProductByPage(int pageId, int total) {
+		CriteriaBuilder cb = mySessionFactory.getCurrentSession().getCriteriaBuilder();
+		CriteriaQuery<Product> cq = cb.createQuery(Product.class);
+		Root<Product> rootEntry = cq.from(Product.class);
+		CriteriaQuery<Product> all = cq.select(rootEntry);
+
+		TypedQuery<Product> allQuery = mySessionFactory.getCurrentSession().createQuery(all).setFirstResult(pageId).setMaxResults(total);
+		return allQuery.getResultList();
+	}
 }

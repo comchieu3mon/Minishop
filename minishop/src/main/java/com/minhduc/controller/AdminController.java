@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.minhduc.entity.Category;
@@ -42,9 +43,15 @@ public class AdminController {
 		return "Admin";
 	}
 	
-	@GetMapping("/products/")
-	public String getAdminProductsPage(ModelMap modelMap) {
-		List<Product> products = productService.getAllProducts();
+	@GetMapping("/products/{page_id}")
+	public String getAdminProductsPage(ModelMap modelMap, @PathVariable(name = "page_id") int page_id) {
+		int total = 10;
+		if (page_id == 1) {
+			
+		} else {
+			page_id = (page_id - 1) * total + 1;
+		}
+		List<Product> products = productService.getProductByPage(page_id, total);
 		modelMap.addAttribute("products", products);
 		return "AdminProduct";
 	}

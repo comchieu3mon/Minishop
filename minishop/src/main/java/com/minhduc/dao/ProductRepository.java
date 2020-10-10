@@ -15,4 +15,6 @@ public interface ProductRepository {
 	List<Product> getProductsByCategoryName(String category_name);
 	
 	void deleteProduct(int product_id);
+	
+	List<Product> getProductByPage(int pageId, int total);
 }

@@ -40,4 +40,9 @@ public class ProductServiceImpl implements ProductService {
 	public void add(Product product) {
 		productRepository.add(product);
 	}
+
+	@Override
+	public List<Product> getProductByPage(int pageId, int total) {
+		return productRepository.getProductByPage(pageId, total);
+	}
 }

@@ -224,11 +224,7 @@ public class ApiController {
 		product.setProduct_description(String.valueOf(product_description));
 		product.setProduct_price(String.valueOf(product_price));
 		product.setProduct_image(String.valueOf(product_image));
-		
-		Set<ProductDetail> productDetails = new HashSet<ProductDetail>();
-		for (JsonNode jsonNode : product_details) {
-			product.setCategory(new Category(String.valueOf(jsonNode.get("product_category"))));
-		}
+		System.out.println(data);
 		
 	}
 }

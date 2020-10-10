@@ -276,17 +276,22 @@ $(document).ready(function () {
     $(".product-detail-content").each(function () {
       let product_detail = {};
       let product_color = $(this).find("#color").val();
-      let product_category = $(this).find("#category").val();
+      let product_quantity = $(this).find("#quantity").val();
+      let date_import = $(this).find("#date").val();
       let product_size = $(this).find("#size").val();
       if (
         product_color != "" &&
-        product_category != "" &&
-        product_category != ""
+        product_size != "" &&
+        date_import != "" &&
+        product_quantity != ""
       ) {
         product_detail.product_color = product_color;
         product_detail.product_size = product_size;
-        product_detail.product_category = product_category;
+        product_detail.product_quantity = product_quantity;
+        product_detail.date_import = date_import;
         product_detail_array.push(product_detail);
+        console.log(product_quantity);
+        console.log(date_import);
       }
     });
     json.product_details = product_detail_array;

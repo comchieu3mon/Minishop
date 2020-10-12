@@ -40,7 +40,7 @@
 
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard
+					<li><a href="../../"><i class="menu-icon fa fa-laptop"></i>Dashboard
 						</a></li>
 
 					<li class="menu-item-has-children active dropdown"><a href="#" class="dropdown-toggle"
@@ -52,8 +52,11 @@
 								</a></li>
 							<li><i class="fa fa-table"></i><a href="tables-data.html">Data
 									Table</a></li>
+							
 						</ul>
 					</li>
+					<li><a href="../../add/product/"><i class="menu-icon fa fa-laptop"></i>Dashboard
+					</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -156,6 +159,9 @@
 												<td>
 													<button class="delete-button btn btn-danger" type="button">
 														Delete
+													</button>
+													<button class="update-button btn btn-success" type="button">
+														Update
 													</button>
 												</td>
 											</tr>

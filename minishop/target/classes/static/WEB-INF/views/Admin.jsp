@@ -25,8 +25,7 @@
 	href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-<link rel="stylesheet"
-	href='<c:url value="/resources/assets/css/cs-skin-elastic.css"></c:url>'>
+<link rel="stylesheet" href='<c:url value="/resources/assets/css/cs-skin-elastic.css"></c:url>'>
 <link rel="stylesheet"
 	href='<c:url value="/resources/assets/css/lib/datatable/dataTables.bootstrap.min.css"></c:url>'>
 <link rel="stylesheet"
@@ -57,11 +56,13 @@
 							class="menu-icon fa fa-table"></i>Tables
 					</a>
 						<ul class="sub-menu children dropdown-menu">
-							<li><i class="fa fa-table"></i><a href="./products/">Products
+							<li><i class="fa fa-table"></i><a href="./products/1/">Products
 							</a></li>
 							<li><i class="fa fa-table"></i><a href="tables-data.html">Data
 									Table</a></li>
 						</ul></li>
+					<li><a href="./add/product/"><i class="menu-icon fa fa-laptop"></i>Add Product
+					</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

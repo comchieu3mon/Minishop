@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Admin Add Products</title>
+	<title>Update Products</title>
 	<meta name="description" content="Ela Admin - HTML5 Admin Template">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -38,7 +38,7 @@
 
 			<div id="main-menu" class="main-menu collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard
+					<li><a href="../../"><i class="menu-icon fa fa-laptop"></i>Dashboard
 						</a></li>
 
 					<li class="menu-item-has-children active dropdown"><a href="#" class="dropdown-toggle"

@@ -63,4 +63,9 @@ public class AdminController {
 		modelMap.addAttribute("categoryList", categoryService.getAllCategory());
 		return "AdminAddProduct";
 	}
+	
+	@GetMapping("/update/")
+	public String getAdminUpdateProduct(ModelMap modleMap) {
+		return "AdminUpdateProduct";
+	}
 }

@@ -223,7 +223,6 @@ $(document).ready(function () {
   $(".delete-button").on("click", function () {
     let self = $(this);
     let product_id = $(this).closest("tr").attr("data-product-id");
-    alert("click");
     $.ajax({
       type: "GET",
       url: "http://localhost:8080/minishop/api/deleteProduct/",

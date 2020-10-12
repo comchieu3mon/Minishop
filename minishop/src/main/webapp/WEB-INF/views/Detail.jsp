@@ -77,7 +77,7 @@
 				<div class="panel-body row">
 					<div class="col-md-6">
 						<div class="pro-img-details" data-product-image-url="${ product.getProduct_image() }">
-							<img src="${ product.getProduct_image() }" alt="">
+							<img src='<c:url value="${ product.getProduct_image() }"></c:url>' alt="">
 						</div>
 
 					</div>

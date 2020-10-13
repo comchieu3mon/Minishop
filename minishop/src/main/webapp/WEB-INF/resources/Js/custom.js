@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $(".login-status").css("display", "none");
   $(".login-status").addClass("wow bounce");
+  $(".notification").hide();
 
   $("#btn-login").click(function () {
     $.ajax({
@@ -303,6 +304,32 @@ $(document).ready(function () {
     });
   });
 
+  $("#btn-login-admin").click(function () {
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:8080/minishop/api/admin/login/",
+      data: {
+        username: $("#username").val(),
+        password: $("#password").val(),
+      },
+      success: function (value) {
+        if ("true" === value) {
+          $(".login-status").addClass("alert-success");
+          $("#login-text").text("Login success");
+
+          $(".login-status").css("display", "block");
+		setTimeout(() => {  window.location.replace("http://localhost:8080/minishop/admin/"); }, 2000);
+          
+        } else {
+          $(".login-status").removeClass("alert-success");
+          $(".login-status").addClass("alert-danger");
+          $("#login-text").text("Login Failed");
+          $(".login-status").css("display", "block");
+        }
+      },
+    });
+  });
+
   $("#update-product-button").on("click", function (event) {
     event.preventDefault();
     let json = {};
@@ -338,7 +365,7 @@ $(document).ready(function () {
     });
     json.product_details = product_detail_array;
     let data = JSON.stringify(json);
-
+    $(".notification").show();
     $.ajax({
       type: "POST",
       url: "http://localhost:8080/minishop/api/update/",

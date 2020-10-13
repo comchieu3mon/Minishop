@@ -5,7 +5,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <jsp:include page="Header.jsp"/>
-<title>Login</title>
+<title>Login Admin</title>
 <jsp:include page="Header.jsp"/>
 </head>
 <body id="login-body">
@@ -26,9 +26,8 @@
                </div>
             
             </form>
-            <button class="login-button" id="btn-login">Login</button>                
+            <button class="login-button" id="btn-login-admin">Login</button>                
             <div class="login-alternative">
-                <p><a href="../admin/login/">Or login with Admin Account</a></p>
                 <a href="" class="facebook-link">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     Facebook
@@ -42,7 +41,6 @@
             	<p>Dont have an account? <a href="../register/">Sign up now</a></p>
             </div>
         </div>
-<%--         <h1>${ username }</h1>--%>
     </div>
     <jsp:include page="Footer.jsp"/>
 </body>

@@ -139,6 +139,15 @@
 
 					<div class="col-md-12">
 						<!-- code here -->
+						<div class="notification alert alert-success alert-dismissible fade show"
+							role="alert">
+							<strong>Update Success!</strong>
+							<button type="button" class="close" data-dismiss="alert"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+
 						<form class="needs-validation" method="POST" id="add-product-form">
 							<div class="row mb-3" style="display: none;">
 								<label for="productId">Product Name</label> <input type="text"
@@ -202,7 +211,8 @@
 								var="productDetails">
 								<div class="row product-detail-content pl-0">
 									<div class="col-md-3 mb-3" style="display: none;">
-										<input id="product_detail_id" value="${ productDetails.getProduct_detail_id() }"/>
+										<input id="product_detail_id"
+											value="${ productDetails.getProduct_detail_id() }" />
 									</div>
 									<div class="col-md-3 mb-3">
 										<label for="color">Color</label> <select

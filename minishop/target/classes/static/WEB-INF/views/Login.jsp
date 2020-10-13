@@ -28,7 +28,7 @@
             </form>
             <button class="login-button" id="btn-login">Login</button>                
             <div class="login-alternative">
-                <p>Or login with</p>
+                <p><a href="../admin/login/">Or login with Admin Account</a></p>
                 <a href="" class="facebook-link">
                     <i class="fa fa-facebook" aria-hidden="true"></i>
                     Facebook

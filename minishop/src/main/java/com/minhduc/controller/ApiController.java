@@ -294,4 +294,13 @@ public class ApiController {
 		product.setProductDetails(productDetails);
 		productService.update(product);
 	}
+	
+	@GetMapping("admin/login/")
+	@ResponseBody
+	public String checkLoginAdmin(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
+		if (username.equals("admin") && password.equals("123")) {
+			return "true";
+		}
+		return "false";
+	}
 }

@@ -74,4 +74,14 @@ public class AdminController {
 		modelMap.addAttribute("categoryList", categoryService.getAllCategory());
 		return "AdminUpdateProduct";
 	}
+	
+	@GetMapping("login/")
+	public String getAdminLogin() {
+		return "AdminLogin";
+	}
+	
+	@GetMapping("error/")
+	public String getAdminErrorPage() {
+		return "Error";
+	}
 }

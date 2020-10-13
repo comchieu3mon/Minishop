@@ -8,6 +8,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.minhduc.entity.Category;
 import com.minhduc.entity.Product;
@@ -64,8 +65,13 @@ public class AdminController {
 		return "AdminAddProduct";
 	}
 	
-	@GetMapping("/update/")
-	public String getAdminUpdateProduct(ModelMap modleMap) {
+	@GetMapping("/update")
+	public String getAdminUpdateProduct(ModelMap modelMap, @RequestParam(name = "product_id") int product_id) {
+		Product product = productService.getProductById(product_id);
+		modelMap.addAttribute("product", product);
+		modelMap.addAttribute("colorList", colorService.getAllColor());
+		modelMap.addAttribute("sizeList", sizeService.getAllSize());
+		modelMap.addAttribute("categoryList", categoryService.getAllCategory());
 		return "AdminUpdateProduct";
 	}
 }

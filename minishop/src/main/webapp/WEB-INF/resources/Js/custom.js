@@ -289,8 +289,6 @@ $(document).ready(function () {
         product_detail.product_quantity = product_quantity;
         product_detail.date_import = date_import;
         product_detail_array.push(product_detail);
-        console.log(product_quantity);
-        console.log(date_import);
       }
     });
     json.product_details = product_detail_array;
@@ -299,6 +297,48 @@ $(document).ready(function () {
     $.ajax({
       type: "POST",
       url: "http://localhost:8080/minishop/api/add/",
+      data: {
+        data: data,
+      },
+    });
+  });
+
+  $("#update-product-button").on("click", function (event) {
+    event.preventDefault();
+    let json = {};
+    let product_image =
+      "/resources/Images/" + $("#exampleFormControlFile1")[0].files[0]["name"];
+    json["product_image"] = product_image;
+    $.each($("#add-product-form").serializeArray(), function (index, element) {
+      json[element.name] = element.value;
+    });
+
+    let product_detail_array = [];
+    $(".product-detail-content").each(function () {
+      let product_detail = {};
+      let product_color = $(this).find("#color").val();
+      let product_quantity = $(this).find("#quantity").val();
+      let date_import = $(this).find("#date").val();
+      let product_size = $(this).find("#size").val();
+      if (
+        product_color != "" &&
+        product_size != "" &&
+        date_import != "" &&
+        product_quantity != ""
+      ) {
+        product_detail.product_color = product_color;
+        product_detail.product_size = product_size;
+        product_detail.product_quantity = product_quantity;
+        product_detail.date_import = date_import;
+        product_detail_array.push(product_detail);
+      }
+    });
+    json.product_details = product_detail_array;
+    let data = JSON.stringify(json);
+
+    $.ajax({
+      type: "POST",
+      url: "http://localhost:8080/minishop/api/update/",
       data: {
         data: data,
       },

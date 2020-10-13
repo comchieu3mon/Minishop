@@ -104,12 +104,10 @@ public class Product {
 		this.productDetails = productDetails;
 	}
 
-	
-
 	@Override
 	public String toString() {
 		return "Product [product_id=" + product_id + ", category=" + category + ", product_name=" + product_name
 				+ ", product_price=" + product_price + ", product_description=" + product_description
-				+ ", product_image=" + product_image + ", productDetails=" + productDetails +  "]";
+				+ ", product_image=" + product_image + "]";
 	}
 }

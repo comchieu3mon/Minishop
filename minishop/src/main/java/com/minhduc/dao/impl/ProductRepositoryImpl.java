@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
 
 import com.minhduc.dao.ProductRepository;
 import com.minhduc.entity.Product;
+import com.minhduc.entity.ProductDetail;
 
 @Repository
 public class ProductRepositoryImpl implements ProductRepository {
@@ -79,5 +80,16 @@ public class ProductRepositoryImpl implements ProductRepository {
 
 		TypedQuery<Product> allQuery = mySessionFactory.getCurrentSession().createQuery(all).setFirstResult(pageId).setMaxResults(total);
 		return allQuery.getResultList();
+	}
+
+	@Override
+	@Transactional
+	public void update(Product product) {
+		Session session = mySessionFactory.getCurrentSession();
+		System.out.println(product);
+		for (ProductDetail productDetail : product.getProductDetails()) {
+			System.out.println(productDetail);
+		}
+		session.update(product);
 	}
 }

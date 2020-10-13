@@ -45,4 +45,9 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getProductByPage(int pageId, int total) {
 		return productRepository.getProductByPage(pageId, total);
 	}
+
+	@Override
+	public void update(Product product) {
+		productRepository.update(product);
+	}
 }

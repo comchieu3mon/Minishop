@@ -249,4 +249,46 @@ public class ApiController {
 		product.setProductDetails(productDetails);
 		productService.add(product);
 	}
+	
+	@PostMapping("update/")
+	@ResponseBody
+	public void updateProduct(@RequestParam(name = "data") String data) throws JsonMappingException, JsonProcessingException {
+		System.out.println(data);
+		ObjectMapper mapper = new ObjectMapper();
+		JsonNode jsonObject = mapper.readTree(data);
+		String product_image = jsonObject.get("product_image").asText();
+		String product_name = jsonObject.get("product_name").asText();
+		String product_price = jsonObject.get("product_price").asText();
+		String product_description = jsonObject.get("product_description").asText();
+		String product_category = jsonObject.get("product_category").asText();
+		JsonNode product_details = jsonObject.get("product_details");
+		
+		Product product = new Product();
+		product.setProduct_name(String.valueOf(product_name));
+		product.setProduct_description(String.valueOf(product_description));
+		product.setProduct_price(String.valueOf(product_price));
+		product.setProduct_image(String.valueOf(product_image));
+		Category category = new Category();
+		category.setCategory_id(Integer.parseInt(product_category));
+		product.setCategory(category);
+		
+		Set<ProductDetail> productDetails = new HashSet<ProductDetail>();
+		for (JsonNode jsonNode : product_details) {
+			ProductDetail productDetail = new ProductDetail();
+			Color color = new Color();
+			color.setColor_id(Integer.parseInt(jsonNode.get("product_color").asText()));
+			Size size = new Size();
+			size.setSize_id(Integer.parseInt(jsonNode.get("product_size").asText()));
+			int quantity = Integer.parseInt(jsonNode.get("product_quantity").asText());
+			String date_import = String.valueOf(jsonNode.get("date_import").asText());
+			productDetail.setColor(color);
+			productDetail.setSize(size);
+			productDetail.setQuantity(quantity);
+			productDetail.setDate_import(date_import);
+			productDetails.add(productDetail);
+		}
+		
+		product.setProductDetails(productDetails);
+		productService.add(product);
+	}
 }

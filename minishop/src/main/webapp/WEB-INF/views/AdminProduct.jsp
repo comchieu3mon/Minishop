@@ -52,11 +52,11 @@
 								</a></li>
 							<li><i class="fa fa-table"></i><a href="tables-data.html">Data
 									Table</a></li>
-							
+
 						</ul>
 					</li>
 					<li><a href="../../add/product/"><i class="menu-icon fa fa-laptop"></i>Dashboard
-					</a></li>
+						</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -160,9 +160,9 @@
 													<button class="delete-button btn btn-danger" type="button">
 														Delete
 													</button>
-													<button class="update-button btn btn-success" type="button">
+													<a href="../../update?product_id=${ product.getProduct_id() }" class="update-button btn btn-success">
 														Update
-													</button>
+													</a>
 												</td>
 											</tr>
 										</c:forEach>

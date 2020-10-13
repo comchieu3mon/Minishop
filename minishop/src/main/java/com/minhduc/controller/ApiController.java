@@ -261,9 +261,11 @@ public class ApiController {
 		String product_price = jsonObject.get("product_price").asText();
 		String product_description = jsonObject.get("product_description").asText();
 		String product_category = jsonObject.get("product_category").asText();
+		String product_id = jsonObject.get("productId").asText();
 		JsonNode product_details = jsonObject.get("product_details");
 		
 		Product product = new Product();
+		product.setProduct_id(Integer.parseInt(product_id));
 		product.setProduct_name(String.valueOf(product_name));
 		product.setProduct_description(String.valueOf(product_description));
 		product.setProduct_price(String.valueOf(product_price));
@@ -275,6 +277,7 @@ public class ApiController {
 		Set<ProductDetail> productDetails = new HashSet<ProductDetail>();
 		for (JsonNode jsonNode : product_details) {
 			ProductDetail productDetail = new ProductDetail();
+			productDetail.setProduct_detail_id(Integer.parseInt(jsonNode.get("product_detail_id").asText()));
 			Color color = new Color();
 			color.setColor_id(Integer.parseInt(jsonNode.get("product_color").asText()));
 			Size size = new Size();
@@ -289,6 +292,6 @@ public class ApiController {
 		}
 		
 		product.setProductDetails(productDetails);
-		productService.add(product);
+		productService.update(product);
 	}
 }

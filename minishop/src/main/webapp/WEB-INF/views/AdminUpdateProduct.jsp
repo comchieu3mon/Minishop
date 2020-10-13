@@ -140,6 +140,12 @@
 					<div class="col-md-12">
 						<!-- code here -->
 						<form class="needs-validation" method="POST" id="add-product-form">
+							<div class="row mb-3" style="display: none;">
+								<label for="productId">Product Name</label> <input type="text"
+									class="form-control" id="productId"
+									value="${ product.getProduct_id() }" required name="productId">
+
+							</div>
 							<div class="row mb-3">
 								<label for="productName">Product Name</label> <input type="text"
 									class="form-control" id="productName"
@@ -195,6 +201,9 @@
 							<c:forEach items="${ product.getProductDetails() }"
 								var="productDetails">
 								<div class="row product-detail-content pl-0">
+									<div class="col-md-3 mb-3" style="display: none;">
+										<input id="product_detail_id" value="${ productDetails.getProduct_detail_id() }"/>
+									</div>
 									<div class="col-md-3 mb-3">
 										<label for="color">Color</label> <select
 											class="custom-select d-block w-100" id="color"
@@ -243,12 +252,12 @@
 											name="quantity">
 											<c:forEach begin="1" end="5" var="i">
 												<c:choose>
-												 <c:when test="${ i == productDetails.getQuantity() }">
-												 	<option selected value="${ i }">${ i }</option>
-												 </c:when>
-												 <c:otherwise>
-												 	<option value="${ i }">${ i }</option>
-												 </c:otherwise>
+													<c:when test="${ i == productDetails.getQuantity() }">
+														<option selected value="${ i }">${ i }</option>
+													</c:when>
+													<c:otherwise>
+														<option value="${ i }">${ i }</option>
+													</c:otherwise>
 												</c:choose>
 											</c:forEach>
 										</select>

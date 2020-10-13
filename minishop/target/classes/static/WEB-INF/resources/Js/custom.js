@@ -316,6 +316,7 @@ $(document).ready(function () {
     let product_detail_array = [];
     $(".product-detail-content").each(function () {
       let product_detail = {};
+      let product_detail_id = $(this).find("#product_detail_id").val();
       let product_color = $(this).find("#color").val();
       let product_quantity = $(this).find("#quantity").val();
       let date_import = $(this).find("#date").val();
@@ -324,8 +325,10 @@ $(document).ready(function () {
         product_color != "" &&
         product_size != "" &&
         date_import != "" &&
-        product_quantity != ""
+        product_quantity != "" &&
+        product_detail_id != ""
       ) {
+        product_detail.product_detail_id = product_detail_id;
         product_detail.product_color = product_color;
         product_detail.product_size = product_size;
         product_detail.product_quantity = product_quantity;
